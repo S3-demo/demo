@@ -2,7 +2,7 @@
   "name": "s2",
   "version": "4.0.0",
   "private": true,
-  "homepage": "https://sunilgudivada.github.io/s2/",
+  "homepage": "https://s3-demo.github.io/demo/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
