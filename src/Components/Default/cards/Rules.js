@@ -6,6 +6,8 @@ import red from '@material-ui/core/colors/red'
 import Button from '@material-ui/core/Button';
 import { Card, CardContent } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import Grow from '@material-ui/core/Grow';
+
 const useStyles = makeStyles((theme) => ({
     margin: {
         margin: theme.spacing(1),
@@ -32,35 +34,38 @@ export default function Rules (){
     const classes = useStyles();
 
     return (
-        <>  <Card>
-                <CardContent>
-                    <div align="center">
-                        <Grid container spacing={3}>
-                        <Grid item xs={12}>
-                            <Typography variant="h3" gutterBottom>
-                                <b>5</b>
+        <>  
+        <Grow in={true} style={{ transformOrigin: '0 0 0' }} {...{ timeout: 2000 }}>
+        <Card>
+            <CardContent>
+                <div align="center">
+                    <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                        <Typography variant="h3" gutterBottom>
+                            <b>5</b>
+                        </Typography>
+                        Total Rulesets
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Typography variant="h3" gutterBottom>
+                            <b>25</b>
+                        </Typography>
+                        Matching Rules
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Typography variant="h3" gutterBottom>
+                                <b>10</b>
                             </Typography>
-                            Total Rulesets
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Typography variant="h3" gutterBottom>
-                                <b>25</b>
-                            </Typography>
-                            Matching Rules
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Typography variant="h3" gutterBottom>
-                                    <b>10</b>
-                                </Typography>
-                                Merge Rules
-                        </Grid>
-                        </Grid>
-                        <Button fullWidth href="#/Ruleset/add" variant="contained" color="primary" className={classes.button}>
-                           Create Rule
-                        </Button>
-                    </div>
-                </CardContent>
-            </Card>
+                            Merge Rules
+                    </Grid>
+                    </Grid>
+                    <Button fullWidth href="#/Ruleset/add" variant="contained" color="primary" className={classes.button}>
+                        Create Rule
+                    </Button>
+                </div>
+            </CardContent>
+        </Card>
+        </Grow>
         </>
     )
 }

@@ -203,7 +203,6 @@ import ReviewMatches from './cards/ReviewMatches';
           {data.map((row) => (
             <Step key={row.stepName}>
               <StepLabel StepIconComponent={ColorlibStepIcon}>{row.stepName}</StepLabel>
-
                     {row.stepContent}
             </Step>
           ))}

@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import {Button,Container} from '@material-ui/core';
+import {Container} from '@material-ui/core';
 import Grow from '@material-ui/core/Grow';
 import Analytics from './Analytics';
 
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },heroContent: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
+    padding: theme.spacing(0, 0, 0),
   }
 }));
 
@@ -57,11 +57,11 @@ export default function Default(){
               Welcome Demo
             </Typography>
             </Grow>
-            <Grow in={true} style={{ transformOrigin: '0 0 0' }} {...{ timeout: 1500 }}>
+            {/* <Grow in={true} style={{ transformOrigin: '0 0 0' }} {...{ timeout: 1500 }}>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
               This is the demo site, please dont upload your personal information.
             </Typography>
-            </Grow>
+            </Grow> */}
             {/* <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
@@ -82,6 +82,7 @@ export default function Default(){
             </div> */}
           </Container>
         </div>
+        
           <Analytics />
         </div>
       </Grid>

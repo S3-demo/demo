@@ -7,6 +7,8 @@ import orange from '@material-ui/core/colors/orange'
 import Button from '@material-ui/core/Button';
 import { Card, CardContent } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import Grow from '@material-ui/core/Grow';
+
 const useStyles = makeStyles((theme) => ({
     margin: {
         margin: theme.spacing(1),
@@ -36,7 +38,9 @@ export default function Standardize (){
     const classes = useStyles();
 
     return (
-        <>  <Card>
+        <>  
+        <Grow in={true} style={{ transformOrigin: '0 0 0' }} {...{ timeout: 1500 }}>
+        <Card>
                 <CardContent>
                     <div >
                         <Grid container spacing={3} align="center" >
@@ -66,6 +70,7 @@ export default function Standardize (){
                     </div>
                 </CardContent>
             </Card>
+            </Grow>
         </>
     )
 }

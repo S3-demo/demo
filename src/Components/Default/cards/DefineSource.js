@@ -5,6 +5,8 @@ import green from '@material-ui/core/colors/green'
 import red from '@material-ui/core/colors/red'
 import Button from '@material-ui/core/Button';
 import { Card, CardContent, Grid } from '@material-ui/core';
+import Grow from '@material-ui/core/Grow';
+
 const useStyles = makeStyles((theme) => ({
     margin: {
         margin: theme.spacing(1),
@@ -30,7 +32,9 @@ export default function DefineSource (){
     const classes = useStyles();
 
     return (
-        <>  <Card>
+        <>  
+        <Grow in={true} style={{ transformOrigin: '0 0 0' }} {...{ timeout: 1000 }}>
+        <Card>
                 <CardContent>
                     <div align="center">
                         <Grid container spacing={3}>
@@ -59,6 +63,7 @@ export default function DefineSource (){
                     </div>
                 </CardContent>
             </Card>
+            </Grow>
         </>
     )
 }
