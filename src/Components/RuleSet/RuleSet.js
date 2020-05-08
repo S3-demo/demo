@@ -152,7 +152,7 @@ function RuleSet() {
         }else if(path === "#/rules/2"){
             setRuleSetName("Rule Set 02");
         }
-    });
+    },[]);
     return (
         <Card className={classes.root} variant="outlined">
             <CardContent>

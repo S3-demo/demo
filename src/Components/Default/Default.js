@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import {Button,Container} from '@material-ui/core';
 import Grow from '@material-ui/core/Grow';
+import Analytics from './Analytics';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,7 +62,7 @@ export default function Default(){
               This is the demo site, please dont upload your personal information.
             </Typography>
             </Grow>
-            <div className={classes.heroButtons}>
+            {/* <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
                   <Grow in={true} style={{ transformOrigin: '0 0 0' }} {...{ timeout: 2000 }}>
@@ -78,10 +79,10 @@ export default function Default(){
                   </Grow>
                 </Grid>
               </Grid>
-            </div>
+            </div> */}
           </Container>
         </div>
-          
+          <Analytics />
         </div>
       </Grid>
     </Grid>
