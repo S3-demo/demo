@@ -52,13 +52,13 @@ export default function Standardize (){
                         </Grid>
                         <Grid item xs={6} style={{ textAlign: 'center'}}>
                             <Typography variant="h3" gutterBottom className={classes.active}>
-                                <b>72</b>
+                                <b>64</b>
                             </Typography>
                             fMappings - tResults
                         </Grid>
                         <Grid item xs={6} style={{ textAlign: 'center'}}>
                             <Typography variant="h3" gutterBottom className={classes.current}>
-                                <b>32</b>
+                                <b>12</b>
                             </Typography>
                             fMappings - fResults
                         </Grid>
