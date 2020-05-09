@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Options from '../Options/Options';
 import { Button } from '@material-ui/core';
-
+import {red} from '@material-ui/core/colors';
 const attrArray = [
     'First Name',
     'Middle Name',
@@ -44,8 +44,9 @@ const useStyles = makeStyles({
     tableCellStyle:{
         padding:0
     },
-    tableContainer:{
-
+    required:{
+        color: red[500],
+        fontWeight: 'bold'
     }
 });
 const cust1options = [
@@ -135,7 +136,10 @@ export default function Standardization(props) {
                       <TableBody>
                         {attrArray.map((value,index) => (
                             <TableRow key={index}>
-                                <TableCell className={classes.tableCellStyle}>{value}</TableCell>
+                                <TableCell className={classes.tableCellStyle}>
+                                    {index <4 ? (<span className={classes.required}> * </span>): null}    
+                                    {value}
+                                </TableCell>
                                 <TableCell align="center" className={classes.tableCellStyle}>
                                     <Options attrArray={cust1options} defaultValue={cust1defaultvalue[index]}/>
                                 </TableCell>
