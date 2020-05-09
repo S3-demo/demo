@@ -101,7 +101,7 @@ const cust2defaultvalue = [
     'Middle_Name',
     'Last_Name',
     'Alias_Name',
-    'Full_Name',
+    '',
     '',
     '',
     '',
