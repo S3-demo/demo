@@ -138,7 +138,7 @@ export default function SimpleDialogDemo() {
       </Button>
       <br />
         <Grid container style={{marginTop:'36px', marginBottom:'10px'}}>
-          {selectedValue=== 'Database' ?(
+          {selectedValue=== 'MySql Database' ?(
             <Card className={clsx(classes.root,classes.avatar)} variant="outlined" >
              
               <CardContent style={{padding:'16px'}}>
