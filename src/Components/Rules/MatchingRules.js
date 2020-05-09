@@ -4,9 +4,6 @@ import clsx from 'clsx';
 import {
     Button,
     Box,
-    Card, 
-    CardActions,
-    CardContent,
     Divider,
     ExpansionPanel,
     ExpansionPanelDetails,
@@ -21,19 +18,13 @@ import {
     Select,
     Switch,
     Typography,
-    TextField,
-    Tooltip
+    TextField
 } from '@material-ui/core';
 
 import { Edit, Clear, Add, } from '@material-ui/icons'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { grey } from '@material-ui/core/colors';
-
-import PlayArrow from '@material-ui/icons/PlayArrow';
-import RotateLeft from '@material-ui/icons/RotateLeft';
-import Timer from '@material-ui/icons/Timer';
-import Stop from '@material-ui/icons/Stop';
 import {green,red,indigo,orange} from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme)=>({
@@ -123,14 +114,10 @@ const useStyles = makeStyles((theme)=>({
     }
 }));
 
-function RuleSet() {
+function MatchingRules() {
     const classes = useStyles();
-    const [ruleSetNameEdit, setRuleSetNameEdit] = React.useState(false);
-    const [ruleSetName, setRuleSetName] = React.useState('Rule Set Name');
     const [ruleSetScoreThresholdEdit, setRuleSetScoreThresholdEdit] = React.useState(false);
     const [ruleSetScoreThreshold, setRuleSetScoreThreshold] = React.useState(10);
-    const [ruleSetDescriptionEdit, setRuleSetDescriptionEdit] = React.useState(false);
-    const [ruleSetDescription, setRuleSetDescription] = React.useState('This is the place for Rule Set Description. Please click on the edit button to edit the content.');
     const [aggregationMethod, setAggregationMethod] = React.useState('No Method selected');
     const [aggregationMethodEdit, setAggregationMethodEdit] = React.useState(false);
 
@@ -144,152 +131,62 @@ function RuleSet() {
     const handleRuleStatusChange = (event) => {
         setRuleStatus({ ...ruleStatus, [event.target.name]: event.target.checked });
     };
-
-    React.useEffect(()=>{
-        const path = window.location.hash;
-        if(path === "#/rules/1"){
-            setRuleSetName("Rule Set 01");
-        }else if(path === "#/rules/2"){
-            setRuleSetName("Rule Set 02");
-        }
-    },[]);
-    return (
-        <Card className={classes.root} variant="outlined">
-            <CardContent>
+    return (<div>
             <Grid item>
-                <Typography component={'span'} variant={'body2'}>
-                    <Box textAlign="center" m={1} fontSize="h5.fontSize" style={{ fontWeight: 'bold' }}>
-                        Deduplication Rules
-                    </Box>
-                </Typography>
-                </Grid>
-                <Grid className={classes.actionButtons}>
-                    <Tooltip title="Start">
-                        <IconButton aria-label="Start" className={classes.PlayArrow}>
-                            <PlayArrow />
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip title="Stop">
-                        <IconButton aria-label="Stop" className={classes.Stop}>
-                            <Stop />
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip title="Restart">
-                        <IconButton aria-label="Restart" className={classes.RotateLeft}>
-                            <RotateLeft />
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip title="schedule">
-                        <IconButton aria-label="schedule" className={classes.Timer}>
-                            <Timer />
-                        </IconButton>
-                    </Tooltip>
-                </Grid>
-                
-
-                
-                <Grid container>
-                    <Grid item xs={4}>
-                        {!ruleSetNameEdit ? (
-                            <div>
-                                <div className={classes.ruleSetName}><b>Ruleset Name: <br/></b> {ruleSetName}
-                                    <IconButton aria-label="delete" className={classes.margin} onClick={() => setRuleSetNameEdit(true)}>
-                                        <Edit fontSize="small" />
-                                    </IconButton>
-                                </div>
-                            </div>
-                        ) : (
-                                <div>
-                                    <TextField id="outlined-basic" size="small" label="Rule Set Name" value={ruleSetName} variant="outlined" onChange={e => setRuleSetName(e.target.value)} />
-                                    <IconButton aria-label="delete" className={classes.margin} onClick={() => setRuleSetNameEdit(false)}>
-                                        <Clear fontSize="small" />
-                                    </IconButton>
-                                </div>
-                            )}
-
-                    </Grid>
-
-                    <Grid item xs={4}>
-
-                    </Grid>
-                    <Grid item xs={4}>
-                        {!ruleSetDescriptionEdit ? (
-                            <div>
-                                <div className={classes.ruleSetDescription}><b>Ruleset Description: <br/></b> {ruleSetDescription}
-                                    <IconButton aria-label="delete" className={classes.margin} onClick={() => setRuleSetDescriptionEdit(true)}>
-                                        <Edit fontSize="small" />
-                                    </IconButton>
-                                </div>
-                            </div>
-                        ) : (
-                                <div>
-                                    <FormControl fullWidth className={classes.margin}>
-                                        <TextField id="outlined-multiline-static" label="Rulset Description" multiline rows={3} variant="outlined" value={ruleSetDescription} onChange={e => setRuleSetDescription(e.target.value)} />
-                                        <IconButton aria-label="delete" className={classes.margin} onClick={() => setRuleSetDescriptionEdit(false)}>
-                                            <Clear fontSize="small" />
-                                        </IconButton>
-                                    </FormControl>
-                                </div>
-                            )}
-
-                    </Grid>
-
-                        
-                    </Grid>
-                    <Grid container style={{marginTop:'25px'}}>
-                    <Grid item xs={4}>
-                    {!aggregationMethodEdit ? (
-                            <div>
-                                <div className={classes.ruleSetName}><b>Aggregation Method: <br/></b> {aggregationMethod}
-                                    <IconButton aria-label="delete" className={classes.margin} onClick={() => setAggregationMethodEdit(true)}>
-                                        <Edit fontSize="small" />
-                                    </IconButton>
-                                </div>
-                            </div>
-                        ) : (
+                <Grid container style={{marginTop:'25px'}}>
+                <Grid item xs={4}>
+                {!aggregationMethodEdit ? (
                         <div>
-                            <FormControl size="small" variant="outlined" className={classes.aggregationMethod}>
-                            <InputLabel id="demo-simple-select-outlined-label">Aggregation Method</InputLabel>
-                            <Select labelId="demo-simple-select-outlined-label" id="demo-simple-select-outlined"
-                            value={aggregationMethod}
-                            onChange={handleAggregationMethod}
-                            label="Select Aggregation Method"
-                            >
-                            <MenuItem value="" disabled>
-                                Aggregation Method
-                            </MenuItem>
-                            <MenuItem value='Minimum'>Minimum</MenuItem>
-                            <MenuItem value='Maximum'>Maximum</MenuItem>
-                            <MenuItem value='Average'>Average</MenuItem>    
-                            </Select>
-                        </FormControl>
-                        <IconButton aria-label="delete" className={classes.margin} onClick={() => setAggregationMethodEdit(false)}>
-                            <Clear fontSize="small" />
-                        </IconButton>
-                        </div>
-
-                        )}
-                    </Grid>
-                    <Grid item xs={4}>
-
-                    </Grid>
-                    <Grid item xs={4}>
-                        {!ruleSetScoreThresholdEdit ? (
-                            <div>
-                                <div className={classes.ruleSetScoreThreshold}><b>Ruleset Score Threshold: <br/></b> {ruleSetScoreThreshold}
-                                    <IconButton aria-label="delete" className={classes.margin} onClick={() => setRuleSetScoreThresholdEdit(true)}>
-                                        <Edit fontSize="small" />
-                                    </IconButton>
-                                </div>
+                            <div className={classes.ruleSetName}><b>Aggregation Method: <br/></b> {aggregationMethod}
+                                <IconButton aria-label="delete" className={classes.margin} onClick={() => setAggregationMethodEdit(true)}>
+                                    <Edit fontSize="small" />
+                                </IconButton>
                             </div>
-                        ) : (
-                                <div>
-                                    <TextField id="outlined-basic" size="small" label="Ruleset Score Threshold" value={ruleSetScoreThreshold} variant="outlined" onChange={e => setRuleSetScoreThreshold(e.target.value)} />
-                                    <IconButton aria-label="delete" className={classes.margin} onClick={() => setRuleSetScoreThresholdEdit(false)}>
-                                        <Clear fontSize="small" />
-                                    </IconButton>
-                                </div>
-                            )}
+                        </div>
+                    ) : (
+                    <div>
+                        <FormControl size="small" variant="outlined" className={classes.aggregationMethod}>
+                        <InputLabel id="demo-simple-select-outlined-label">Aggregation Method</InputLabel>
+                        <Select labelId="demo-simple-select-outlined-label" id="demo-simple-select-outlined"
+                        value={aggregationMethod}
+                        onChange={handleAggregationMethod}
+                        label="Select Aggregation Method"
+                        >
+                        <MenuItem value="" disabled>
+                            Aggregation Method
+                        </MenuItem>
+                        <MenuItem value='Minimum'>Minimum</MenuItem>
+                        <MenuItem value='Maximum'>Maximum</MenuItem>
+                        <MenuItem value='Average'>Average</MenuItem>    
+                        </Select>
+                    </FormControl>
+                    <IconButton aria-label="delete" className={classes.margin} onClick={() => setAggregationMethodEdit(false)}>
+                        <Clear fontSize="small" />
+                    </IconButton>
+                    </div>
+
+                    )}
+                </Grid>
+                <Grid item xs={4}>
+
+                </Grid>
+                <Grid item xs={4}>
+                    {!ruleSetScoreThresholdEdit ? (
+                        <div>
+                            <div className={classes.ruleSetScoreThreshold}><b>Ruleset Score Threshold: <br/></b> {ruleSetScoreThreshold}
+                                <IconButton aria-label="delete" className={classes.margin} onClick={() => setRuleSetScoreThresholdEdit(true)}>
+                                    <Edit fontSize="small" />
+                                </IconButton>
+                            </div>
+                        </div>
+                    ) : (
+                            <div>
+                                <TextField id="outlined-basic" size="small" label="Ruleset Score Threshold" value={ruleSetScoreThreshold} variant="outlined" onChange={e => setRuleSetScoreThreshold(e.target.value)} />
+                                <IconButton aria-label="delete" className={classes.margin} onClick={() => setRuleSetScoreThresholdEdit(false)}>
+                                    <Clear fontSize="small" />
+                                </IconButton>
+                            </div>
+                        )}
 
                     </Grid>
                 </Grid>
@@ -351,14 +248,11 @@ function RuleSet() {
                         </Typography>
                     </div>
                     <div className={classes.column} >
-                        <Typography variant="caption"><b>Fuzzy Value: </b><br/> 
+                        <Typography variant="caption"><b>Fuzzy Cut Off: </b><br/> 
                             25
                         </Typography>
                     </div>
                     <div className={classes.column} >
-                        <Typography variant="caption"><b>Fuzzy Cut Off </b><br/> 
-                            23
-                        </Typography>
                     </div>
                     <div className={classes.column} >
                         <IconButton aria-label="delete" className={classes.margin} onClick={() =>{}}>
@@ -509,14 +403,11 @@ function RuleSet() {
                         </Typography>
                     </div>
                     <div className={classes.column} >
-                        <Typography variant="caption"><b>Fuzzy Value: </b><br/> 
+                        <Typography variant="caption"><b>Fuzzy Cut Off: </b><br/> 
                             25
                         </Typography>
                     </div>
                     <div className={classes.column} >
-                        <Typography variant="caption"><b>Fuzzy Cut Off </b><br/> 
-                            23
-                        </Typography>
                     </div>
                     <div className={classes.column} >
                         <IconButton aria-label="delete" className={classes.margin} onClick={() =>{}}>
@@ -673,14 +564,11 @@ function RuleSet() {
                         </Typography>
                     </div>
                     <div className={classes.column} >
-                        <Typography variant="caption"><b>Fuzzy Value: </b><br/> 
+                        <Typography variant="caption"><b>Fuzzy Cut Off: </b><br/> 
                             25
                         </Typography>
                     </div>
                     <div className={classes.column} >
-                        <Typography variant="caption"><b>Fuzzy Cut Off </b><br/> 
-                            23
-                        </Typography>
                     </div>
                     <div className={classes.column} >
                         <IconButton aria-label="delete" className={classes.margin} onClick={() =>{}}>
@@ -744,14 +632,11 @@ function RuleSet() {
                         </Typography>
                     </div>
                     <div className={classes.column} >
-                        <Typography variant="caption"><b>Fuzzy Value: </b><br/> 
+                        <Typography variant="caption"><b>Fuzzy Cut Off: </b><br/> 
                             32
                         </Typography>
                     </div>
                     <div className={classes.column} >
-                        <Typography variant="caption"><b>Fuzzy Cut Off </b><br/> 
-                            5
-                        </Typography>
                     </div>
                     <div className={classes.column} >
                         <IconButton aria-label="delete" className={classes.margin} onClick={() =>{}}>
@@ -784,19 +669,8 @@ function RuleSet() {
                     </ExpansionPanelActions>
                 </ExpansionPanel>
 
-               </div> 
-
-
-
-
-
-                
-            </CardContent>
-            <CardActions>
-                <Button size="small">Learn More</Button>
-            </CardActions>
-        </Card>
+               </div></Grid></div>
     );
 }
 
-export default RuleSet
+export default MatchingRules

@@ -19,7 +19,8 @@
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "latest",
-    "react-scripts": "latest"
+    "react-scripts": "latest",
+    "react-swipeable-views": "latest"
   },
   "browserslist": {
     "production": [

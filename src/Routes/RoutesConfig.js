@@ -5,7 +5,8 @@ import PageNotFoundComponent from '../Components/PageNotFoundComponent/PageNotFo
 import Dashboard from '../Components/Dashboard/Dashboard';
 import Default from '../Components/Default/Default';
 import Execution from '../Components/Execution/Execution';
-import RuleSet from '../Components/RuleSet/RuleSet';
+// import RuleSet from '../Components/RuleSet/RuleSet';
+import RulesWrapper from '../Components/RulesWrapper/RulesWrapper'
 
 
 export const RouteNames = {
@@ -14,9 +15,10 @@ export const RouteNames = {
     MAP_TO_SOURCE: "MAP_TO_SOURCE",
     SIGN_IN: "SIGN_IN",
     SIGN_UP: "SIGN_UP",
-    RULESET_ADD: "RULESET_ADD",
+    RULES_ADD: "RULESET_ADD",
     EXECUTION: "EXECUTION",
-    RULESET_VIEW: "RULESET_VIEW",
+    RULES_VIEW: "RULESET_VIEW"
+
 }
 
 
@@ -26,9 +28,9 @@ export const RouteUrls = {
     MAP_TO_SOURCE: "/MapToSource",
     SIGN_IN: "/signin",
     SIGN_UP: "/signup",
-    RULESET_ADD: "/ruleset/add",
+    RULES_ADD: "/rules/add",
     EXECUTION: "/execution",
-    RULESET_VIEW: "/rules/*",
+    RULES_VIEW: "/rules/*",
 }
 
 export const routes = [
@@ -51,12 +53,6 @@ export const routes = [
         RenderComponent: MapToSource
     },
     {
-        name: RouteNames.RULESET_ADD,
-        path: RouteUrls.RULESET_ADD,
-        dashboardcomponent: Dashboard,
-        RenderComponent: RuleSet
-    },
-    {
         name: RouteNames.EXECUTION,
         path: RouteUrls.EXECUTION,
         dashboardcomponent: Dashboard,
@@ -73,10 +69,16 @@ export const routes = [
         component: SignUp
     },
     {
-        name: RouteNames.RULESET_VIEW,
-        path: RouteUrls.RULESET_VIEW,
+        name: RouteNames.RULES_VIEW,
+        path: RouteUrls.RULES_VIEW,
         dashboardcomponent: Dashboard,
-        RenderComponent: RuleSet
+        RenderComponent: RulesWrapper
+    },
+    {
+        name: RouteNames.RULES_ADD,
+        path: RouteUrls.RULES_ADD,
+        dashboardcomponent: Dashboard,
+        RenderComponent: RulesWrapper
     },
     {
         path: "/*",

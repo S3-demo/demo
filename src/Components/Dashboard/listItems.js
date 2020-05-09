@@ -104,7 +104,7 @@ export default function ListItems() {
 
 export const secondaryListItems = (
   <div>
-    <ListSubheader inset>Saved reports</ListSubheader>
+    <ListSubheader inset>Reports</ListSubheader>
     <ListItem button >
       <ListItemIcon>
         <AssignmentIcon />

@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function Options(props){
+export default function MergingOptions(props){
     const {defaultValue} = props;
     const classes = useStyles();
     const [attribute,setAttribute] = React.useState(defaultValue);
@@ -26,23 +26,17 @@ export default function Options(props){
         setAttribute(event.target.value);
     };
     const attrArray = [
-        'First Name',
-        'Middle Name',
-        'Last Name',
-        'Alias Name',
-        'Full Name',
-        'DOB',
-        'Nationality',
-        'Personal Email',
-        'Business Email',
-        'Personal Phone',
-        'Mobile Phone',
-        'Work Address',
-        'Home Address'
+        'Any',
+        'Not Null',
+        'Not Null & any',
+        'Maximum Occurance',
+        'Minimum Occurance',
+        'Maximum Length',
+        'Minimum Length'
     ]
     return (
         <FormControl size="small" variant="outlined" className={classes.formControl}>
-        <InputLabel id="demo-simple-select-outlined-label">Select Matching Attribute</InputLabel>
+        <InputLabel id="demo-simple-select-outlined-label">Select Merge Type</InputLabel>
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
@@ -51,7 +45,7 @@ export default function Options(props){
           label="Select Matching Attribute"
         >
             <MenuItem value="" disabled>
-                Select Matching Attribute
+                Select Merge Type
             </MenuItem>
             
             {attrArray.map((value,index)=>(

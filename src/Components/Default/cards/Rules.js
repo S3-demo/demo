@@ -59,7 +59,7 @@ export default function Rules (){
                             Merge Rules
                     </Grid>
                     </Grid>
-                    <Button fullWidth href="#/Ruleset/add" variant="contained" color="primary" className={classes.button}>
+                    <Button fullWidth href="#/rules/add" variant="contained" color="primary" className={classes.button}>
                         Create Rule
                     </Button>
                 </div>
