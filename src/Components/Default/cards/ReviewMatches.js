@@ -65,7 +65,7 @@ export default function ReviewMatches (){
                         </Grid>
                         
                         </Grid>
-                        <Button href="#/execution" fullWidth variant="contained" color="primary" className={classes.button}>
+                        <Button href="#/ReviewMatches" fullWidth variant="contained" color="primary" className={classes.button}>
                         Review matches
                         </Button>
                     </div>

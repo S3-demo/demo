@@ -69,7 +69,7 @@ export default function Execution (){
                             Total Failed
                         </Grid>
                         </Grid>
-                        <Button href="#/reviewMatches" fullWidth variant="contained" color="primary" className={classes.button}>
+                        <Button href="#/execution" fullWidth variant="contained" color="primary" className={classes.button}>
                            Execution
                         </Button>
                     </div>
