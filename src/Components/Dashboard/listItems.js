@@ -74,14 +74,14 @@ export default function ListItems() {
             <ListItemIcon>
               <Category />
             </ListItemIcon>
-            <ListItemText primary="Rule 1" />
+            <ListItemText primary="Customer Rules" />
           </ListItemLink>
           <ListItemLink href="#rules/2" className={classes.nested} selected={selectedIndex === 3}
           onClick={(event) => handleListItemClick(event, 3)}>
             <ListItemIcon>
               <Category />
             </ListItemIcon>
-            <ListItemText primary="Rule 2" />
+            <ListItemText primary="Account Rules" />
           </ListItemLink>
         </List>
       </Collapse>
