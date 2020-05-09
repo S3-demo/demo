@@ -111,7 +111,7 @@ import ReviewMatches from './cards/ReviewMatches';
     },
     completed: {
       backgroundImage:
-        'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
+        'linear-gradient( 136deg, rgb(63, 81, 181) 0%, rgb(63, 81, 181) 50%, rgb(63, 137, 181) 100%)',
     },
   });
   

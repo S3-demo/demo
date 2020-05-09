@@ -18,28 +18,14 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function Options(props){
-    const {defaultValue} = props;
+    const {defaultValue, attrArray} = props;
     const classes = useStyles();
     const [attribute,setAttribute] = React.useState(defaultValue);
 
     const handleChange = (event) => {
         setAttribute(event.target.value);
     };
-    const attrArray = [
-        'First Name',
-        'Middle Name',
-        'Last Name',
-        'Alias Name',
-        'Full Name',
-        'DOB',
-        'Nationality',
-        'Personal Email',
-        'Business Email',
-        'Personal Phone',
-        'Mobile Phone',
-        'Work Address',
-        'Home Address'
-    ]
+    
     return (
         <FormControl size="small" variant="outlined" className={classes.formControl}>
         <InputLabel id="demo-simple-select-outlined-label">Select Matching Attribute</InputLabel>

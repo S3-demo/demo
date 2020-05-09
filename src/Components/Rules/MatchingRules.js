@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import {
     Button,
     Box,
+    Badge,
     Divider,
     ExpansionPanel,
     ExpansionPanelDetails,
@@ -24,8 +25,7 @@ import {
 import { Edit, Clear, Add, } from '@material-ui/icons'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { grey } from '@material-ui/core/colors';
-import {green,red,indigo,orange} from '@material-ui/core/colors';
+import {green,red,indigo,orange,blue,grey} from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme)=>({
     root: {
@@ -70,6 +70,10 @@ const useStyles = makeStyles((theme)=>({
         fontSize: theme.typography.pxToRem(15),
       },
     secondaryHeading: {
+        fontSize: theme.typography.pxToRem(15),
+        color: theme.palette.text.secondary,
+    },
+    ruleWeightage: {
         fontSize: theme.typography.pxToRem(15),
         color: theme.palette.text.secondary,
     },
@@ -215,7 +219,10 @@ function MatchingRules() {
                         <Typography className={classes.secondaryHeading}>This rule matches Full Name on fuzzy and Date of Birth , Email on exact  </Typography>
                     </div>
                     <div className={classes.column}>
-                        <Typography className={classes.secondaryHeading}>Rule Weightage - 25</Typography>
+                        <Typography className={classes.ruleWeightage}> 
+                            <Badge badgeContent={23} color="secondary"style={{marginLeft: '46px'}}>
+                            </Badge>
+                        </Typography>
                     </div>
 
                     </ExpansionPanelSummary>
@@ -370,7 +377,10 @@ function MatchingRules() {
                         <Typography className={classes.secondaryHeading}>This rule matches Full Name on fuzzy and Date of Birth , Nationality on exact</Typography>
                     </div>
                     <div className={classes.column}>
-                        <Typography className={classes.secondaryHeading}>Rule Weightage - 45</Typography>
+                    <Typography className={classes.ruleWeightage}> 
+                            <Badge badgeContent={45} color="secondary"style={{marginLeft: '46px'}}>
+                            </Badge>
+                        </Typography>
                     </div>
 
                     </ExpansionPanelSummary>
@@ -531,7 +541,10 @@ function MatchingRules() {
                         <Typography className={classes.secondaryHeading}>This rule matches Full Name, Email on fuzzy and Date of Birth  on exact match.</Typography>
                     </div>
                     <div className={classes.column}>
-                        <Typography className={classes.secondaryHeading}>Rule Weightage - 47</Typography>
+                        <Typography className={classes.ruleWeightage}> 
+                            <Badge badgeContent={74} color="secondary"style={{marginLeft: '46px'}}>
+                            </Badge>
+                        </Typography>
                     </div>
 
                     </ExpansionPanelSummary>

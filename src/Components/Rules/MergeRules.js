@@ -31,6 +31,22 @@ const mergeArray = [
     'Not Null & any',
     'Maximum Occurance'
 ]
+const optionsArray = [
+    'First Name',
+    'Middle Name',
+    'Last Name',
+    'Alias Name',
+    'Full Name',
+    'DOB',
+    'Nationality',
+    'Personal Email',
+    'Business Email',
+    'Personal Phone',
+    'Mobile Phone',
+    'Office Address',
+    'Home Address'
+]
+
 export default function MergeRules(){
     return (
         <Grid item>
@@ -39,7 +55,7 @@ export default function MergeRules(){
                    
                 </Grid>
                 <Grid item xs={9} centered="true">
-                    <Options />
+                    <Options attrArray={optionsArray}/>
                     <MergingOptions />
                     <IconButton aria-label="delete">
                         <AddBoxIcon fontSize="large" style={{color: green[500]}}/>
@@ -58,7 +74,7 @@ export default function MergeRules(){
                    
                     </Grid>
                     <Grid item xs={9} centered="true">
-                        <Options defaultValue={attrArray[index]}/>
+                        <Options defaultValue={attrArray[index]} attrArray={optionsArray}/>
                         <MergingOptions defaultValue={mergeArray[index]}/>
                         <IconButton aria-label="delete">
                             <RemoveCircleIcon fontSize="small" style={{color: red[500]}}/>

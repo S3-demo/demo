@@ -40,8 +40,8 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 const rows = [
-    createData('Database 1', 'username 1', '********', 'jdbc:db2:hostname:port Number/databaseName', 'A','A'),
-    createData('Database 4', 'username 4', '********', 'SourceColumnMapping.csv', 'A','A'),
+    createData('Customer Source 1', 'username 1', '********', 'jdbc:db2:hostname:port Number/databaseName', 'A','A'),
+    createData('Customer Source 2', 'username 4', '********', 'SourceColumnMapping.csv', 'A','A'),
     createData('Database 3', 'username 3', '********', 'jdbc:db2:hostname:port Number/databaseName', 'A','A'),
     createData('Database 2', 'username 2', '********', 'jdbc:db2:hostname:port Number/databaseName', 'X','A'),
     createData('Database 5', 'username 5', '********', 'jdbc:db2:hostname:port Number/databaseName', 'X','A'),

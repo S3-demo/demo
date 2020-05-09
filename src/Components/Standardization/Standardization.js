@@ -48,7 +48,69 @@ const useStyles = makeStyles({
 
     }
 });
+const cust1options = [
+    'FirstName',
+    'MiddleName',
+    'LastName',
+    'AliasName',
+    'FullName',
+    'DOB',
+    'Nationality',
+    'PersonalEmail',
+    'BusinessEmail',
+    'PersonalPhone',
+    'MobilePhone',
+    'WorkAddress',
+    'HomeAddress'
+]
 
+const cust2options = [
+    'First_Name',
+    'Middle_Name',
+    'Last_Name',
+    'Alias_Name',
+    'Full_Name',
+    'Date_Of_Birth',
+    'Nationality',
+    'Personal_Email',
+    'Business_Email',
+    'Personal_Phone',
+    'Mobile_Phone',
+    'Office_Address',
+    'Home_Address'
+]
+
+const cust1defaultvalue = [
+    'FirstName',
+    'MiddleName',
+    'LastName',
+    'AliasName',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    ''
+]
+
+const cust2defaultvalue = [
+    'First_Name',
+    'Middle_Name',
+    'Last_Name',
+    'Alias_Name',
+    'Full_Name',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    ''
+]
 export default function Standardization(props) {
         
         const classes = useStyles();
@@ -66,16 +128,20 @@ export default function Standardization(props) {
                       <TableHead>
                         <TableRow>
                             <TableCell className={classes.tableCellStyle}>Standardized Attributes</TableCell>
-                            <TableCell className={classes.tableCellStyle} align="center">Source1 Attributes</TableCell>
-                            <TableCell className={classes.tableCellStyle} align="center">Source2 Attributes</TableCell>
+                            <TableCell className={classes.tableCellStyle} align="center">Customer Source 1</TableCell>
+                            <TableCell className={classes.tableCellStyle} align="center">Customer Source 2</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
                         {attrArray.map((value,index) => (
                             <TableRow key={index}>
                                 <TableCell className={classes.tableCellStyle}>{value}</TableCell>
-                                <TableCell align="center" className={classes.tableCellStyle}><Options /></TableCell>
-                                <TableCell align="center"className={classes.tableCellStyle}><Options /></TableCell>
+                                <TableCell align="center" className={classes.tableCellStyle}>
+                                    <Options attrArray={cust1options} defaultValue={cust1defaultvalue[index]}/>
+                                </TableCell>
+                                <TableCell align="center"className={classes.tableCellStyle}>
+                                    <Options attrArray={cust2options} defaultValue={cust2defaultvalue[index]}/>
+                                </TableCell>
                             </TableRow>
 
                         ))}

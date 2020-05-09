@@ -19,7 +19,7 @@ import clsx from 'clsx';
 import CheckCircle from '@material-ui/icons/CheckCircle';
 import Cancel from '@material-ui/icons/Cancel';
 
-const dataSourceTypes = ['Database', 'File'];
+const dataSourceTypes = ['MySql Database', 'File'];
 const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: blue[100],

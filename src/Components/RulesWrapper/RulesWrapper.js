@@ -15,9 +15,10 @@ import {
     IconButton,
     Typography,
     TextField,
-    Tooltip
+    Tooltip,
+    AppBar
 } from '@material-ui/core';
-import { Edit, Clear, } from '@material-ui/icons'
+import { Edit, Clear, Category,MergeType } from '@material-ui/icons'
 
 import PlayArrow from '@material-ui/icons/PlayArrow';
 import RotateLeft from '@material-ui/icons/RotateLeft';
@@ -110,37 +111,40 @@ export default function RulesWrapper() {
 
     <Card className={classes.root} variant="outlined">
     <CardContent>
+    <Grid container>
+      <Grid item xs={3}>
 
-    <Grid item>
-    <Typography component={'span'} variant={'body2'}>
-        <Box textAlign="center" m={1} fontSize="h5.fontSize" style={{ fontWeight: 'bold' }}>
-            Deduplication Rules
-        </Box>
-    </Typography>
+      </Grid>
+      <Grid item xs={6}>
+      <Typography component={'span'} variant={'body2'}>
+          <Box textAlign="center" m={1} fontSize="h5.fontSize" style={{ fontWeight: 'bold' }}>
+              Deduplication Rules
+          </Box>
+      </Typography>
+      </Grid>
+      <Grid className={classes.actionButtons}>
+          <Tooltip title="Start">
+              <IconButton aria-label="Start" className={classes.PlayArrow}>
+                  <PlayArrow />
+              </IconButton>
+          </Tooltip>
+          <Tooltip title="Stop">
+              <IconButton aria-label="Stop" className={classes.Stop}>
+                  <Stop />
+              </IconButton>
+          </Tooltip>
+          <Tooltip title="Restart">
+              <IconButton aria-label="Restart" className={classes.RotateLeft}>
+                  <RotateLeft />
+              </IconButton>
+          </Tooltip>
+          <Tooltip title="schedule">
+              <IconButton aria-label="schedule" className={classes.Timer}>
+                  <Timer />
+              </IconButton>
+          </Tooltip>
+      </Grid>
     </Grid>
-    <Grid className={classes.actionButtons}>
-        <Tooltip title="Start">
-            <IconButton aria-label="Start" className={classes.PlayArrow}>
-                <PlayArrow />
-            </IconButton>
-        </Tooltip>
-        <Tooltip title="Stop">
-            <IconButton aria-label="Stop" className={classes.Stop}>
-                <Stop />
-            </IconButton>
-        </Tooltip>
-        <Tooltip title="Restart">
-            <IconButton aria-label="Restart" className={classes.RotateLeft}>
-                <RotateLeft />
-            </IconButton>
-        </Tooltip>
-        <Tooltip title="schedule">
-            <IconButton aria-label="schedule" className={classes.Timer}>
-                <Timer />
-            </IconButton>
-        </Tooltip>
-    </Grid>
-    
 
     
     <Grid container>
@@ -191,6 +195,7 @@ export default function RulesWrapper() {
 
             
         </Grid>
+        <AppBar position="static" color="default">
         <Tabs
           value={value}
           onChange={handleChange}
@@ -199,9 +204,10 @@ export default function RulesWrapper() {
           aria-label="full width tabs example"
           centered
         >
-          <Tab label="Matching Rules" {...a11yProps(0)} />
-          <Tab label="Merge Rules" {...a11yProps(1)} />
+          <Tab icon={<Category />} label="Matching Rules" {...a11yProps(0)} />
+          <Tab icon={<MergeType />} label="Merge Rules" {...a11yProps(1)} />
         </Tabs>
+        </AppBar>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
