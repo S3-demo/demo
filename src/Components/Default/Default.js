@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {Container} from '@material-ui/core';
 import Grow from '@material-ui/core/Grow';
 import Analytics from './Analytics';
+import DataQuality from '../DataQuality/DataQuality';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,7 +48,6 @@ export default function Default(){
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      
       <Grid item xs={12} component={Paper} variant="outlined" square>
         <div className={classes.paper}>
         <div className={classes.heroContent}>

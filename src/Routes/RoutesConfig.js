@@ -7,6 +7,7 @@ import Default from '../Components/Default/Default';
 import Execution from '../Components/Execution/Execution';
 // import RuleSet from '../Components/RuleSet/RuleSet';
 import RulesWrapper from '../Components/RulesWrapper/RulesWrapper'
+import DataQuality from '../Components/DataQuality/DataQuality';
 
 
 export const RouteNames = {
@@ -17,8 +18,8 @@ export const RouteNames = {
     SIGN_UP: "SIGN_UP",
     RULES_ADD: "RULESET_ADD",
     EXECUTION: "EXECUTION",
-    RULES_VIEW: "RULESET_VIEW"
-
+    RULES_VIEW: "RULESET_VIEW",
+    DATA_QUALITY: "DATA_QUALITY"
 }
 
 
@@ -31,6 +32,7 @@ export const RouteUrls = {
     RULES_ADD: "/rules/add",
     EXECUTION: "/execution",
     RULES_VIEW: "/rules/*",
+    DATA_QUALITY: "/dq"
 }
 
 export const routes = [
@@ -79,6 +81,12 @@ export const routes = [
         path: RouteUrls.RULES_ADD,
         dashboardcomponent: Dashboard,
         RenderComponent: RulesWrapper
+    },
+    {
+        name: RouteNames.DATA_QUALITY,
+        path: RouteUrls.DATA_QUALITY,
+        dashboardcomponent: Dashboard,
+        RenderComponent: DataQuality
     },
     {
         path: "/*",
