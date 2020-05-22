@@ -19,6 +19,7 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import FolderIcon from '@material-ui/icons/Folder';
+import Breadcrumb from '../Breadcrumbs/Breadcrumb';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -68,6 +69,16 @@ function generate(element) {
 export default function Execution(){
     const classes = useStyles();
     const [ruleName, setRuleName] = React.useState('');
+    const path = [{
+        displayName: 'Home',
+        displayIcon: 'Home',
+        URL: '#/dashboard'
+      },
+      {
+        displayName: 'Execution',
+        displayIcon: '',
+        URL: '#/Execution'
+      }]
 
     const handleChange = (event) => {
         setRuleName(event.target.value);
@@ -75,6 +86,7 @@ export default function Execution(){
 
     return(
         <div className={classes.root}>
+            <Breadcrumb path={path}/>
         <Card className={classes.root} variant="outlined">
             <CardContent>
             <Typography component={'span'} variant={'body2'}>

@@ -137,8 +137,8 @@ export default function Standardization(props) {
                         {attrArray.map((value,index) => (
                             <TableRow key={index}>
                                 <TableCell className={classes.tableCellStyle}>
-                                    {index <4 ? (<span className={classes.required}> * </span>): null}    
                                     {value}
+                                    {index <4 ? (<span className={classes.required}> * </span>): null} 
                                 </TableCell>
                                 <TableCell align="center" className={classes.tableCellStyle}>
                                     <Options attrArray={cust1options} defaultValue={cust1defaultvalue[index]}/>

@@ -229,7 +229,7 @@ export default function Dashboard(props) {
               <MenuIcon />
             </IconButton>
             <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-              S3 Admin Dashboard
+            Customer Master Data Mangement
           </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
@@ -250,7 +250,7 @@ export default function Dashboard(props) {
             }}
             variant="dot"
           >
-            <Avatar alt="Remy Sharp" src="https://source.unsplash.com/random" />
+            <Avatar alt="Remy Sharp"  />
           </StyledBadge>
         </Button>
         <Popper open={actionButtons} anchorEl={anchorRef.current} role={undefined} transition disablePortal>

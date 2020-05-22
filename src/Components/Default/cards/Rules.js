@@ -44,20 +44,47 @@ export default function Rules (){
                         <Typography variant="h3" gutterBottom>
                             <b>5</b>
                         </Typography>
-                        Total Rulesets
+                        Total Rules
                     </Grid>
                     <Grid item xs={6}>
                         <Typography variant="h3" gutterBottom>
-                            <b>25</b>
+                            <b> </b>
                         </Typography>
-                        Matching Rules
+                         
                     </Grid>
                     <Grid item xs={6}>
                         <Typography variant="h3" gutterBottom>
-                                <b>10</b>
+                                <b></b>
                             </Typography>
-                            Merge Rules
+                             
                     </Grid>
+
+                    <Grid item xs={6}>
+                        <Typography variant="h3" gutterBottom>
+                            <b> </b>
+                        </Typography>
+                         
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Typography variant="h3" gutterBottom>
+                                <b></b>
+                            </Typography>
+                             
+                    </Grid>
+
+                    <Grid item xs={6}>
+                        <Typography variant="h3" gutterBottom>
+                            <b> </b>
+                        </Typography>
+                         
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Typography variant="h3" gutterBottom>
+                                <b></b>
+                            </Typography>
+                             
+                    </Grid>
+
                     </Grid>
                     <Button fullWidth href="#/rules/add" variant="contained" color="primary" className={classes.button}>
                         Create Rule
