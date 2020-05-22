@@ -8,6 +8,7 @@ import Execution from '../Components/Execution/Execution';
 // import RuleSet from '../Components/RuleSet/RuleSet';
 import RulesWrapper from '../Components/RulesWrapper/RulesWrapper'
 import DataQuality from '../Components/DataQuality/DataQuality';
+import DataQualityReport from '../Components/DataQuality/DataQualityReport';
 
 
 export const RouteNames = {
@@ -19,7 +20,8 @@ export const RouteNames = {
     RULES_ADD: "RULESET_ADD",
     EXECUTION: "EXECUTION",
     RULES_VIEW: "RULESET_VIEW",
-    DATA_QUALITY: "DATA_QUALITY"
+    DATA_QUALITY: "DATA_QUALITY",
+    DATA_QUALITY_REPORT: "DATA_QUALITY_REPORT"
 }
 
 
@@ -32,7 +34,8 @@ export const RouteUrls = {
     RULES_ADD: "/rules/add",
     EXECUTION: "/execution",
     RULES_VIEW: "/rules/*",
-    DATA_QUALITY: "/dq"
+    DATA_QUALITY: "/dq",
+    DATA_QUALITY_REPORT: "/dqreport",
 }
 
 export const routes = [
@@ -87,6 +90,13 @@ export const routes = [
         path: RouteUrls.DATA_QUALITY,
         dashboardcomponent: Dashboard,
         RenderComponent: DataQuality
+    }
+    ,
+    {
+        name: RouteNames.DATA_QUALITY_REPORT,
+        path: RouteUrls.DATA_QUALITY_REPORT,
+        dashboardcomponent: Dashboard,
+        RenderComponent: DataQualityReport
     },
     {
         path: "/*",

@@ -128,21 +128,25 @@ function DataQuality(){
             <Box textAlign="center" m={1} fontSize="h5.fontSize" style={{fontWeight: 'bold'}}>
                 Data Quality
             </Box>
+
             </Typography>
             <div className={clsx(classes.column)} style={{backgroundColor: grey[300]}}>
                         <Grid container>
                             <Grid item xs={2} className={classes.ruleHelper}>
-                                <Typography variant="caption"><b>Rule Name: </b><br/> Match FullName DOB Email</Typography>
-                            </Grid>
-                            <Grid item xs={4} className={classes.ruleHelper}>
-                                <Typography variant="caption"><b>Rule Description</b><br/>This rule matches Full Name on fuzzy and Date of Birth , Email on exact  </Typography>
+                                <Typography variant="caption"><b>DQ Name: </b><br/> Customer Name Check</Typography>
                             </Grid>
                             <Grid item xs={2} className={classes.ruleHelper}>
-                                <Typography variant="caption"><b>Rule Weightage</b><br/> 25</Typography>
+                                <Typography variant="caption"><b>DQ Description</b><br/>Defining rule for data quality of Customer Name </Typography>
+                            </Grid>
+                            <Grid item xs={2} className={classes.ruleHelper}>
+                                <Typography variant="caption"><b>Select Source</b><br/>Customer Source 1</Typography>
+                            </Grid>
+                            <Grid item xs={2} className={classes.ruleHelper}>
+                                <Typography variant="caption"><b>Select Attribute</b><br/> cust_name</Typography>
                             </Grid>
                             <Grid item xs={4} className={classes.ruleHelper}>
                                 <Button variant="outlined" size="small" className={classes.addRule} >
-                                    <Add fontSize="small"/> Add Attribute 
+                                    <Add fontSize="small"/> Add DQ Rule 
                                 </Button>
                             </Grid>
                         </Grid>
@@ -150,16 +154,16 @@ function DataQuality(){
                     <Divider />
                     <ExpansionPanelDetails className={classes.details}>
                     <div className={classes.column} >
-                        <Typography variant="caption"><b>Attribute</b><br/> Full Name</Typography>
+                        <Typography variant="caption"><b>Rule Type</b><br/> Range Check</Typography>
                     </div>
                     <div className={classes.column} >
-                        <Typography variant="caption"><b>Matching Method</b><br/> 
-                            Fuzzy
+                        <Typography variant="caption"><b>Minimum Value</b><br/> 
+                            0
                         </Typography>
                     </div>
                     <div className={classes.column} >
-                        <Typography variant="caption"><b>Fuzzy Cut Off: </b><br/> 
-                            25
+                        <Typography variant="caption"><b>Maximum Value</b><br/> 
+                            255
                         </Typography>
                     </div>
                     <div className={classes.column} >
@@ -181,15 +185,52 @@ function DataQuality(){
                         } style={{ margin: '2px' }}
                         />
                     </div>
-                    
+                  
                     </ExpansionPanelDetails>
+
                     <ExpansionPanelDetails className={classes.details}>
                     <div className={classes.column} >
-                        <Typography variant="caption"><b>Attribute</b><br/> DOB</Typography>
+                        <Typography variant="caption"><b>Rule Type</b><br/> Length Check</Typography>
                     </div>
                     <div className={classes.column} >
-                        <Typography variant="caption"><b>Matching Method</b><br/> 
-                            Exact Match
+                        <Typography variant="caption"><b>Minimum Length</b><br/> 
+                            10
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Maximum Length</b><br/> 
+                            50
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                    </div>
+                    <div className={classes.column} >
+                        <IconButton aria-label="delete" className={classes.margin} onClick={() =>{}}>
+                            <Edit fontSize="small" />
+                        </IconButton>
+                        <IconButton aria-label="delete" className={classes.margin} onClick={() => {}}>
+                            <DeleteIcon fontSize="small" />
+                        </IconButton>
+                        <FormControlLabel control={
+                            <Switch
+                                checked={ruleStatus.checked}
+                                onChange={handleRuleStatusChange}
+                                name="checkedB"
+                                color="primary"
+                            />
+                        } style={{ margin: '2px' }}
+                        />
+                    </div>
+                    
+                    </ExpansionPanelDetails>
+
+                    <ExpansionPanelDetails className={classes.details}>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Rule Type</b><br/> List of Values</Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>List of Values</b><br/> 
+                            
                         </Typography>
                     </div>
                     <div className={classes.column} >
@@ -215,14 +256,147 @@ function DataQuality(){
                     </div>
                     
                     </ExpansionPanelDetails>
+
+                    <ExpansionPanelDetails className={classes.details}>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Rule Type</b><br/> Null Check</Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Null Allowed</b><br/> 
+                            No
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                    </div>
+                    <div className={classes.column} >
+                    </div>
+                    <div className={classes.column} >
+                        <IconButton aria-label="delete" className={classes.margin} onClick={() =>{}}>
+                            <Edit fontSize="small" />
+                        </IconButton>
+                        <IconButton aria-label="delete" className={classes.margin} onClick={() => {}}>
+                            <DeleteIcon fontSize="small" />
+                        </IconButton>
+                        <FormControlLabel control={
+                            <Switch
+                                checked={ruleStatus.checked}
+                                onChange={handleRuleStatusChange}
+                                name="checkedB"
+                                color="primary"
+                            />
+                        } style={{ margin: '2px' }}
+                        />
+                    </div>
+                    
+                    </ExpansionPanelDetails>
+
+
+
                     <Divider />
+
+
+
+
+
+                    <Divider />
+
+                    <div className={clsx(classes.column)} style={{backgroundColor: grey[300]}}>
+                        <Grid container>
+                            <Grid item xs={2} className={classes.ruleHelper}>
+                                <Typography variant="caption"><b>DQ Name: </b><br/> Transaction Type Check</Typography>
+                            </Grid>
+                            <Grid item xs={2} className={classes.ruleHelper}>
+                                <Typography variant="caption"><b>DQ Description</b><br/>Defining rule for data quality of Transaction Type </Typography>
+                            </Grid>
+                            <Grid item xs={2} className={classes.ruleHelper}>
+                                <Typography variant="caption"><b>Select Source</b><br/>Customer Source 2</Typography>
+                            </Grid>
+                            <Grid item xs={2} className={classes.ruleHelper}>
+                                <Typography variant="caption"><b>Select Attribute</b><br/> Transactiontype</Typography>
+                            </Grid>
+                        </Grid>
+                    </div>
+
+
                     <ExpansionPanelDetails className={classes.details}>
                     <div className={classes.column} >
-                        <Typography variant="caption"><b>Attribute</b><br/> Email</Typography>
+                        <Typography variant="caption"><b>Rule Type</b><br/> Range Check</Typography>
                     </div>
                     <div className={classes.column} >
-                        <Typography variant="caption"><b>Matching Method</b><br/> 
-                            Exact Match
+                        <Typography variant="caption"><b>Minimum Value</b><br/> 
+                            0
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Maximum Value</b><br/> 
+                            255
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                    </div>
+                    <div className={classes.column} >
+                        <IconButton aria-label="delete" className={classes.margin} onClick={() =>{}}>
+                            <Edit fontSize="small" />
+                        </IconButton>
+                        <IconButton aria-label="delete" className={classes.margin} onClick={() => {}}>
+                            <DeleteIcon fontSize="small" />
+                        </IconButton>
+                        <FormControlLabel control={
+                            <Switch
+                                checked={ruleStatus.checked}
+                                onChange={handleRuleStatusChange}
+                                name="checkedB"
+                                color="primary"
+                            />
+                        } style={{ margin: '2px' }}
+                        />
+                    </div>
+                  
+                    </ExpansionPanelDetails>
+
+                    <ExpansionPanelDetails className={classes.details}>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Rule Type</b><br/> Length Check</Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Minimum Length</b><br/> 
+                            10
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Maximum Length</b><br/> 
+                            50
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                    </div>
+                    <div className={classes.column} >
+                        <IconButton aria-label="delete" className={classes.margin} onClick={() =>{}}>
+                            <Edit fontSize="small" />
+                        </IconButton>
+                        <IconButton aria-label="delete" className={classes.margin} onClick={() => {}}>
+                            <DeleteIcon fontSize="small" />
+                        </IconButton>
+                        <FormControlLabel control={
+                            <Switch
+                                checked={ruleStatus.checked}
+                                onChange={handleRuleStatusChange}
+                                name="checkedB"
+                                color="primary"
+                            />
+                        } style={{ margin: '2px' }}
+                        />
+                    </div>
+                    
+                    </ExpansionPanelDetails>
+
+                    <ExpansionPanelDetails className={classes.details}>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Rule Type</b><br/> List of Values</Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>List of Values</b><br/> 
+                            Cash,Cheque,Online
                         </Typography>
                     </div>
                     <div className={classes.column} >
@@ -248,6 +422,48 @@ function DataQuality(){
                     </div>
                     
                     </ExpansionPanelDetails>
+
+                    <ExpansionPanelDetails className={classes.details}>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Rule Type</b><br/> Null Check</Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Null Allowed</b><br/> 
+                            Yes
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                    </div>
+                    <div className={classes.column} >
+                    </div>
+                    <div className={classes.column} >
+                        <IconButton aria-label="delete" className={classes.margin} onClick={() =>{}}>
+                            <Edit fontSize="small" />
+                        </IconButton>
+                        <IconButton aria-label="delete" className={classes.margin} onClick={() => {}}>
+                            <DeleteIcon fontSize="small" />
+                        </IconButton>
+                        <FormControlLabel control={
+                            <Switch
+                                checked={ruleStatus.checked}
+                                onChange={handleRuleStatusChange}
+                                name="checkedB"
+                                color="primary"
+                            />
+                        } style={{ margin: '2px' }}
+                        />
+                    </div>
+                    
+                    </ExpansionPanelDetails>
+
+
+
+                    <Divider />
+
+
+
+
+
         </Paper>
         </>
     )
