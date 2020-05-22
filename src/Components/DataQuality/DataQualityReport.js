@@ -147,7 +147,7 @@ function DataQualityReport(){
             backgroundColor: 'rgba(75,192,192,1)',
             borderColor: 'rgba(0,0,0,1)',
             borderWidth: 1,
-            data: [65, 59, 80, 81, 56,100,34,57,68,90,12]
+            data: [65, 59, 80, 81, 56]
           }
         ]
       }    
@@ -158,10 +158,38 @@ function DataQualityReport(){
         datasets: [
           {
             label: 'Record Passed',
-            backgroundColor: 'rgba(75,192,192,1,10)',
+            backgroundColor: 'rgb(191, 191, 63)',
             borderColor: 'rgba(0,0,0,1)',
             borderWidth: 1,
-            data: [65, 59, 80, 81, 56,100,34,57,68,90,12]
+            data: [45,34,57,68,90]
+          }
+        ]
+      }    
+
+      const state2 = {
+        labels: ['January', 'February', 'March',
+                 'April', 'May','June','July','August','September','October','November','December'],
+        datasets: [
+          {
+            label: 'Record Passed',
+            backgroundColor: 'rgba(71, 231, 249, 0.2)',
+            borderColor: 'rgba(0,0,0,1)',
+            borderWidth: 1,
+            data: [15,45,35,22,14]
+          }
+        ]
+      }    
+
+      const state3 = {
+        labels: ['January', 'February', 'March',
+                 'April', 'May','June','July','August','September','October','November','December'],
+        datasets: [
+          {
+            label: 'Record Passed',
+            backgroundColor: 'rgb(191, 127, 63)',
+            borderColor: 'rgba(0,0,0,1)',
+            borderWidth: 1,
+            data: [40, 21, 32, 15, 70]
           }
         ]
       }    
@@ -175,6 +203,110 @@ function DataQualityReport(){
                 Data Quality Report
             </Box>
             </Typography>
+
+                    <Divider />
+                    <ExpansionPanelDetails className={classes.details} style={{backgroundColor: 'rgba(75,192,192,1)'}}>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Rule Type</b><br/> Range Check</Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Total Record Passed</b><br/> 
+                            341
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Total Record Failed</b><br/> 
+                            45
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Total Record</b><br/> 
+                            386
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                    </div>
+                  
+                    </ExpansionPanelDetails>
+
+                    <ExpansionPanelDetails className={classes.details} style={{backgroundColor: 'rgb(191, 191, 63)'}}>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Rule Type</b><br/>Length Check</Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Total Record Passed</b><br/> 
+                            294
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Total Record Failed</b><br/> 
+                            43
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Total Record</b><br/> 
+                            337
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                    </div>
+                  
+                    </ExpansionPanelDetails>
+
+                    <ExpansionPanelDetails className={classes.details} style={{backgroundColor: 'rgba(71, 231, 249, 0.2)'}}>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Rule Type</b><br/>List of Values</Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Total Record Passed</b><br/> 
+                            131
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Total Record Failed</b><br/> 
+                            15
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Total Record</b><br/> 
+                            146
+                        </Typography>
+                    </div>
+
+                    <div className={classes.column} >
+                    </div>
+                  
+                    </ExpansionPanelDetails>
+
+                    <ExpansionPanelDetails className={classes.details} style={{backgroundColor: 'rgb(191, 127, 63)'}}>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Rule Type</b><br/>Null Check</Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Total Record Passed</b><br/> 
+                            178
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Total Record Failed</b><br/> 
+                            8
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Total Record</b><br/> 
+                            186
+                        </Typography>
+                    </div>
+
+                    <div className={classes.column} >
+                    </div>
+                  
+                    </ExpansionPanelDetails>
+
+
+
+
+
             <div>
         <Bar
         width="20%"
@@ -183,7 +315,7 @@ function DataQualityReport(){
           options={{
             title:{
               display:true,
-              text:'Range Check By Month Created(Last 12 Months)',
+              text:'Range Check Record By Month(Last 12 Months)',
               fontSize:20
             },
             legend:{
@@ -204,7 +336,50 @@ function DataQualityReport(){
           options={{
             title:{
               display:true,
-              text:'Average Rainfall per month',
+              text:'Length Check Record By Month(Last 12 Months)',
+              fontSize:20
+            },
+            legend:{
+              display:true,
+              position:'right',
+              responsive: true, maintainAspectRatio: true
+            }
+            
+          }}
+        />
+      </div>
+
+      <div>
+        <Bar
+        width="20%"
+        height="2%"
+          data={state2}
+          options={{
+            title:{
+              display:true,
+              text:'List of Values Record By Month(Last 12 Months)',
+              fontSize:20
+            },
+            legend:{
+              display:true,
+              position:'right',
+              responsive: true, maintainAspectRatio: true
+            }
+            
+          }}
+        />
+      </div>
+
+
+      <div>
+        <Bar
+        width="20%"
+        height="2%"
+          data={state3}
+          options={{
+            title:{
+              display:true,
+              text:'Null Check Record By Month(Last 12 Months)',
               fontSize:20
             },
             legend:{
