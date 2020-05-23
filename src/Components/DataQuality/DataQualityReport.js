@@ -1,4 +1,4 @@
-import 'date-fns';
+
 import React,{component} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -29,15 +29,12 @@ import {Bar,Line,Pie,Column} from 'react-chartjs-2';
 //const CanvasJS = CanvasJSReact.CanvasJS;
 //var CanvasJS = CanvasJSReact.CanvasJS;
 //var CanvasJSChart = CanvasJSReact.CanvasJSChart;
-import CardMedia from '@material-ui/core/CardMedia';
-import DateFnsUtils from '@date-io/date-fns';
 import {
     MuiPickersUtilsProvider,
     KeyboardTimePicker,
     KeyboardDatePicker,
   } from '@material-ui/pickers';
-  import 'date-fns';
-  import { compareAsc, format } from 'date-fns'
+
 const useStyles = makeStyles((theme)=>({
     root: {
         minWidth: 275,
@@ -283,9 +280,9 @@ const nullchk = {
 
 
 
-                            <Badge  badgeContent={23} color="secondary"style={{marginLeft: '60px'}} >
+                            <Badge  badgeContent={23} color="secondary"style={{ marginLeft: '60px'}} >
                             </Badge>
-                            <Badge badgeContent={23} color="secondary"style={{marginLeft: '46px'}} fullWidth>
+                            <Badge badgeContent={23} color="primary"style={{marginLeft: '46px'}} fullWidth>
                             </Badge>
                     </div>
 
