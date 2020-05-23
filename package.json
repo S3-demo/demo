@@ -12,11 +12,14 @@
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
+    "@date-io/date-fns": "^2.6.1",
     "@material-ui/core": "latest",
     "@material-ui/icons": "latest",
     "@material-ui/lab": "latest",
+    "@material-ui/pickers": "^3.2.10",
     "chart.js": "^2.9.3",
     "clsx": "latest",
+    "date-fns": "^2.14.0",
     "react": "latest",
     "react-chartjs-2": "^2.9.0",
     "react-dom": "latest",

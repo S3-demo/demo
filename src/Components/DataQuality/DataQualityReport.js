@@ -1,3 +1,4 @@
+import 'date-fns';
 import React,{component} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -11,7 +12,9 @@ import {
     IconButton,
     Paper,
     Switch,
-    Typography
+    Typography,
+    Badge,
+    TextField
 } from '@material-ui/core';
 import { Edit, Clear, Add, } from '@material-ui/icons'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -26,8 +29,15 @@ import {Bar,Line,Pie,Column} from 'react-chartjs-2';
 //const CanvasJS = CanvasJSReact.CanvasJS;
 //var CanvasJS = CanvasJSReact.CanvasJS;
 //var CanvasJSChart = CanvasJSReact.CanvasJSChart;
- 
-
+import CardMedia from '@material-ui/core/CardMedia';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+    MuiPickersUtilsProvider,
+    KeyboardTimePicker,
+    KeyboardDatePicker,
+  } from '@material-ui/pickers';
+  import 'date-fns';
+  import { compareAsc, format } from 'date-fns'
 const useStyles = makeStyles((theme)=>({
     root: {
         minWidth: 275,
@@ -116,7 +126,15 @@ const useStyles = makeStyles((theme)=>({
     },
     Stop: {
       color: red[500]
-    }
+    },
+    shape: {
+        backgroundColor: theme.palette.primary.main,
+        width: 40,
+        height: 40,
+      },
+      shapeCircle: {
+        borderRadius: '50%',
+      }
 }));
 
 
@@ -137,6 +155,7 @@ function DataQualityReport(){
     const handleRuleStatusChange = (event) => {
         setRuleStatus({ ...ruleStatus, [event.target.name]: event.target.checked });
     }
+
 
     const state = {
         labels: ['January', 'February', 'March',
@@ -195,17 +214,94 @@ function DataQualityReport(){
       }    
 
 
+      const rangechk = {
+            label: 'Range Check Trend for May 2020',
+            data: [65, 59, 80, 81, 56,58,60,55,50,52],
+            backgroundColor:'rgba(0, 0, 0, 0)',
+            borderColor: 'rgba(75,192,192,1)'
+      }
+
+      const lengthchk = {
+        label: 'Length Check Trend for May 2020',
+        data: [45,34,57,68,90,86,74,86,81,80],
+        backgroundColor:'rgba(0, 0, 0, 0)',
+        borderColor: 'rgb(191, 191, 63)'
+  }
+
+  const listchk = {
+    label: 'List values Trend for May 2020',
+    data: [15,45,35,22,14,20,18,15,20,22],
+    backgroundColor:'rgba(0, 0, 0, 0)',
+    borderColor:'rgba(71, 231, 249, 0.2)'
+}
+
+const nullchk = {
+    label: 'Null Check Trend for May 2020',
+    data: [40, 21, 32, 15, 70,72,40,45,49,50],
+    backgroundColor:'rgba(0, 0, 0, 0)',
+    borderColor:'rgb(191, 127, 63)'
+}
+
+  
+
+
+      const state4 = {
+        labels: ['1st May', '2nd May', '3rd May',
+                 '4th May', '5th May','6th May','7th May','8th May','9th May','10th May'],
+                 borderWidth: 1,
+        datasets: [rangechk,lengthchk,listchk,nullchk]
+      }    
 
     return (<>
         <Paper variant="outlined" >
             <Typography component={'span'} variant={'body2'}>
+
+                
             <Box textAlign="center" m={1} fontSize="h5.fontSize" style={{fontWeight: 'bold'}}>
                 Data Quality Report
             </Box>
+
+
             </Typography>
 
-                    <Divider />
+
+
+
+            <Divider />
+            <ExpansionPanelDetails className={classes.details}>
+            <div className={classes.column} >
+            <TextField
+        name="datefiler"
+        label="Date Filter"
+        InputLabelProps={{ shrink: true, required: true }}
+        type="date"
+        defaultValue={"2017-05-24"}
+
+        
+
+      />
+
+
+
+                            <Badge  badgeContent={23} color="secondary"style={{marginLeft: '60px'}} >
+                            </Badge>
+                            <Badge badgeContent={23} color="secondary"style={{marginLeft: '46px'}} fullWidth>
+                            </Badge>
+                    </div>
+
+
+
+
+            </ExpansionPanelDetails>
+            
+            <Typography component={'span'} variant={'body2'}>
+            <Box textAlign="center" m={1} fontSize="h5.fontSize" >
+                Total Record Processed
+            </Box>
+            </Typography>
+
                     <ExpansionPanelDetails className={classes.details} style={{backgroundColor: 'rgba(75,192,192,1)'}}>
+                    
                     <div className={classes.column} >
                         <Typography variant="caption"><b>Rule Type</b><br/> Range Check</Typography>
                     </div>
@@ -223,6 +319,16 @@ function DataQualityReport(){
                         <Typography variant="caption"><b>Total Record</b><br/> 
                             386
                         </Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Attributes</b><br/> 
+                        First Name, Last name
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                    <Button variant="outlined" size="small" color="primary" className={classes.addRule} >
+                    <Add fontSize="small"/> Download
+                </Button>
                     </div>
                     <div className={classes.column} >
                     </div>
@@ -249,6 +355,17 @@ function DataQualityReport(){
                         </Typography>
                     </div>
                     <div className={classes.column} >
+                        <Typography variant="caption"><b>Attributes</b><br/> 
+                        Pin code/Zip code
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                    <Button variant="outlined" size="small" color="primary" className={classes.addRule} >
+                    <Add fontSize="small"/> Download
+                </Button>
+                    </div>
+
+                    <div className={classes.column} >
                     </div>
                   
                     </ExpansionPanelDetails>
@@ -270,7 +387,17 @@ function DataQualityReport(){
                     <div className={classes.column} >
                         <Typography variant="caption"><b>Total Record</b><br/> 
                             146
+                        </Typography>                      
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Attributes</b><br/> 
+                        Nationality,Country,State
                         </Typography>
+                    </div>
+                    <div className={classes.column} >
+                    <Button variant="outlined" size="small" color="primary" className={classes.addRule} >
+                    <Add fontSize="small"/> Download
+                </Button>
                     </div>
 
                     <div className={classes.column} >
@@ -297,17 +424,56 @@ function DataQualityReport(){
                             186
                         </Typography>
                     </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Attributes</b><br/> 
+                        First name,Email,Phone Number, Nationality
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                    <Button variant="outlined" size="small" color="primary" className={classes.addRule} >
+                    <Add fontSize="small"/> Download
+                </Button>
+                    </div>
 
                     <div className={classes.column} >
                     </div>
                   
                     </ExpansionPanelDetails>
 
-
-
-
-
             <div>
+
+            <Line
+        width="10%"
+        height="3%"
+          data={state4}
+          position="right"
+          options={{
+            title:{
+              display:true,              
+              text:'Current Month Trend Analysis',
+              fontSize:20,
+              layout: {
+                padding: {
+                    left: 90,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
+                }
+            }
+            },
+            legend:{
+              display:true,
+              position:'right',
+              responsive: true, maintainAspectRatio: true
+            }
+            
+            
+          }}
+        />
+
+
+
+
         <Bar
         width="20%"
         height="2%"
@@ -315,7 +481,7 @@ function DataQualityReport(){
           options={{
             title:{
               display:true,
-              text:'Range Check Record By Month(Last 12 Months)',
+              text:'Range Check Record For Last 12 Months',
               fontSize:20
             },
             legend:{
@@ -336,7 +502,7 @@ function DataQualityReport(){
           options={{
             title:{
               display:true,
-              text:'Length Check Record By Month(Last 12 Months)',
+              text:'Length Check Record For 12 Months',
               fontSize:20
             },
             legend:{
@@ -357,7 +523,7 @@ function DataQualityReport(){
           options={{
             title:{
               display:true,
-              text:'List of Values Record By Month(Last 12 Months)',
+              text:'List of Values Record For 12 Months',
               fontSize:20
             },
             legend:{
@@ -379,7 +545,7 @@ function DataQualityReport(){
           options={{
             title:{
               display:true,
-              text:'Null Check Record By Month(Last 12 Months)',
+              text:'Null Check Record For 12 Months',
               fontSize:20
             },
             legend:{
