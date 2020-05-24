@@ -98,6 +98,11 @@ const useStyles = makeStyles((theme) => ({
     flexBasis: '33.33%',
     fontSize: theme.typography.pxToRem(15),
   },
+  download: {
+    flexBasis: '33.33%',
+    fontSize: theme.typography.pxToRem(15),
+    float: 'right'
+  },
   helper: {
     borderLeft: `2px solid ${theme.palette.divider}`,
     padding: theme.spacing(1, 2),
@@ -252,13 +257,9 @@ function DataQualityReport() {
   return (<>
     <Paper variant="outlined" >
       <Typography component={'span'} variant={'body2'}>
-
-
         <Box textAlign="center" m={1} fontSize="h5.fontSize" style={{ fontWeight: 'bold' }}>
           Data Quality Report
-            </Box>
-
-
+        </Box>
       </Typography>
 
 
@@ -273,26 +274,22 @@ function DataQualityReport() {
             InputLabelProps={{ shrink: true, required: true }}
             type="date"
             defaultValue={"2017-05-24"}
-
-
-
           />
-
-
-
-          <Badge badgeContent={23} color="secondary" style={{ marginLeft: '60px' }} >
-          </Badge>
-          <Badge badgeContent={23} color="primary" style={{ marginLeft: '46px' }} fullWidth>
-          </Badge>
         </div>
-
-
-
-
+        <div className={classes.column} >
+          <Typography variant="caption"><b>Total Passed</b><br />
+                                994
+                            </Typography>
+        </div>
+        <div className={classes.column} >
+          <Typography variant="caption"><b>Total Failed</b><br />
+                                112
+                            </Typography>
+        </div>
       </ExpansionPanelDetails>
 
       <Typography component={'span'} variant={'body2'}>
-        <Box textAlign="center" m={1} fontSize="h5.fontSize" >
+        <Box textAlign="center" m={1} fontSize="h5.fontSize"  style={{ fontWeight: 'bold' }}>
           Total Record Processed
             </Box>
       </Typography>
@@ -323,11 +320,9 @@ function DataQualityReport() {
                         </Typography>
         </div>
         <div className={classes.column} >
-          <IconButton aria-label="delete" className={classes.margin} size="small">
-            <GetApp fontSize="inherit" />
-          </IconButton>
-        </div>
-        <div className={classes.column} >
+          <Button variant="outlined" size="small">
+            <GetApp fontSize="small" /> Download
+          </Button>
         </div>
 
       </ExpansionPanelDetails>
@@ -357,12 +352,9 @@ function DataQualityReport() {
                         </Typography>
         </div>
         <div className={classes.column} >
-          <IconButton aria-label="delete" className={classes.margin} size="small">
-            <GetApp fontSize="inherit" />
-          </IconButton>
-        </div>
-
-        <div className={classes.column} >
+          <Button variant="outlined" size="small">
+            <GetApp fontSize="small" /> Download
+          </Button>
         </div>
 
       </ExpansionPanelDetails>
@@ -392,14 +384,10 @@ function DataQualityReport() {
                         </Typography>
         </div>
         <div className={classes.column} >
-          <IconButton aria-label="delete" className={classes.margin} size="small">
-            <GetApp fontSize="inherit" />
-          </IconButton>
+          <Button variant="outlined" size="small">
+            <GetApp fontSize="small" /> Download
+          </Button>
         </div>
-
-        <div className={classes.column} >
-        </div>
-
       </ExpansionPanelDetails>
 
       <ExpansionPanelDetails className={classes.details} style={{ backgroundColor: 'rgb(191, 127, 63)' }}>
@@ -426,15 +414,11 @@ function DataQualityReport() {
                         First name,Email,Phone Number, Nationality
                         </Typography>
         </div>
-        <div className={classes.column} >
-          <IconButton aria-label="delete" className={classes.margin} size="small">
-            <GetApp fontSize="inherit" />
-          </IconButton>
+        <div className={classes.download} >
+          <Button variant="outlined" size="small">
+            <GetApp fontSize="small" /> Download
+          </Button>
         </div>
-
-        <div className={classes.column} >
-        </div>
-
       </ExpansionPanelDetails>
 
       <div>
@@ -468,100 +452,100 @@ function DataQualityReport() {
           }}
         />
 
-          </div>
-          <Grid container spacing={3}>
+      </div>
+      <Grid container spacing={3}>
 
         <Grid item xs={6} >
           <div>
-        <Bar
-          width="20%"
-          height="10%"
-          data={state}
-          options={{
-            title: {
-              display: true,
-              text: 'Range Check Record For Last 12 Months',
-              fontSize: 20
-            },
-            legend: {
-              display: true,
-              position: 'right',
-              responsive: true, maintainAspectRatio: true
-            }
+            <Bar
+              width="20%"
+              height="10%"
+              data={state}
+              options={{
+                title: {
+                  display: true,
+                  text: 'Range Check Record For Last 12 Months',
+                  fontSize: 20
+                },
+                legend: {
+                  display: true,
+                  position: 'right',
+                  responsive: true, maintainAspectRatio: true
+                }
 
-          }}
-        />
-      </div>
-      </Grid>
-      <Grid item xs={6}>
+              }}
+            />
+          </div>
+        </Grid>
+        <Grid item xs={6}>
 
-      <div>
-        <Bar
-          width="20%"
-          height="10%"
-          data={state1}
-          options={{
-            title: {
-              display: true,
-              text: 'Length Check Record For 12 Months',
-              fontSize: 20
-            },
-            legend: {
-              display: true,
-              position: 'right',
-              responsive: true, maintainAspectRatio: true
-            }
+          <div>
+            <Bar
+              width="20%"
+              height="10%"
+              data={state1}
+              options={{
+                title: {
+                  display: true,
+                  text: 'Length Check Record For 12 Months',
+                  fontSize: 20
+                },
+                legend: {
+                  display: true,
+                  position: 'right',
+                  responsive: true, maintainAspectRatio: true
+                }
 
-          }}
-        />
-      </div>
+              }}
+            />
+          </div>
         </Grid>
 
         <Grid item xs={6} >
-      <div>
-        <Bar
-          width="20%"
-          height="10%"
-          data={state2}
-          options={{
-            title: {
-              display: true,
-              text: 'List of Values Record For 12 Months',
-              fontSize: 20
-            },
-            legend: {
-              display: true,
-              position: 'right',
-              responsive: true, maintainAspectRatio: true
-            }
+          <div>
+            <Bar
+              width="20%"
+              height="10%"
+              data={state2}
+              options={{
+                title: {
+                  display: true,
+                  text: 'List of Values Record For 12 Months',
+                  fontSize: 20
+                },
+                legend: {
+                  display: true,
+                  position: 'right',
+                  responsive: true, maintainAspectRatio: true
+                }
 
-          }}
-        />
-      </div>
+              }}
+            />
+          </div>
+        </Grid>
+        <Grid item xs={6} >
+          <div>
+            <Bar
+              width="20%"
+              height="10%"
+              data={state3}
+              options={{
+                title: {
+                  display: true,
+                  text: 'Null Check Record For 12 Months',
+                  fontSize: 20
+                },
+                legend: {
+                  display: true,
+                  position: 'right',
+                  responsive: true, maintainAspectRatio: true
+                }
+
+              }}
+            />
+          </div>
+        </Grid>
       </Grid>
-      <Grid item xs={6} >
-      <div>
-        <Bar
-          width="20%"
-          height="10%"
-          data={state3}
-          options={{
-            title: {
-              display: true,
-              text: 'Null Check Record For 12 Months',
-              fontSize: 20
-            },
-            legend: {
-              display: true,
-              position: 'right',
-              responsive: true, maintainAspectRatio: true
-            }
-
-          }}
-        />
-      </div>
-</Grid>
-</Grid>
 
     </Paper>
   </>
