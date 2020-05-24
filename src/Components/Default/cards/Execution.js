@@ -45,28 +45,37 @@ export default function Execution (){
                     <div >
                         <Grid container spacing={3} align="center" >
                         <Grid item xs={12}>
-                            <Typography variant="h3" gutterBottom>
-                                <b>1' 49''</b>
+                            <Typography variant="h4" gutterBottom>
+                                <b>13h 25m</b>
                             </Typography>
-                            Last Execution
+                            Next Scheduled
                         </Grid>
-                        <Grid item xs={4} style={{ textAlign: 'center'}}>
+
+                        <Grid item xs={6}>
+                        <Typography variant="h3" gutterBottom>
+                            <b> </b>
+                        </Typography>
+                         
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Typography variant="h3" gutterBottom>
+                                <b></b>
+                            </Typography>
+                             
+                    </Grid>
+                    
+                        <Grid item xs={6} style={{ textAlign: 'center'}}>
                             <Typography variant="h3" gutterBottom className={classes.active}>
                                 <b>25</b>
                             </Typography>
-                            Total Passed
+                            Passed
                         </Grid>
-                        <Grid item xs={4} style={{ textAlign: 'center'}}>
-                            <Typography variant="h3" gutterBottom className={classes.current}>
-                                <b>2</b>
-                            </Typography>
-                            Currently Running
-                        </Grid>
-                        <Grid item xs={4} style={{ textAlign: 'center'}}>
+                        
+                        <Grid item xs={6} style={{ textAlign: 'center'}}>
                             <Typography variant="h3" gutterBottom className={classes.inactive}>
                                     <b>10</b>
                             </Typography>
-                            Total Failed
+                            Failed
                         </Grid>
                         </Grid>
                         <Button href="#/execution" fullWidth variant="contained" color="primary" className={classes.button}>

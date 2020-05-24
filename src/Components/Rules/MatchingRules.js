@@ -121,9 +121,11 @@ const useStyles = makeStyles((theme)=>({
 function MatchingRules() {
     const classes = useStyles();
     const [ruleSetScoreThresholdEdit, setRuleSetScoreThresholdEdit] = React.useState(false);
-    const [ruleSetScoreThreshold, setRuleSetScoreThreshold] = React.useState(10);
+    const [ruleSetScoreThreshold, setRuleSetScoreThreshold] = React.useState(80);
     const [aggregationMethod, setAggregationMethod] = React.useState('No Method selected');
     const [aggregationMethodEdit, setAggregationMethodEdit] = React.useState(false);
+    const [manualScore, setManualScore] = React.useState(60);
+    const [manualScoreEdit, setManualScoreEdit] = React.useState(false);
 
     const handleAggregationMethod = (event) => {
         setAggregationMethod(event.target.value);
@@ -172,12 +174,27 @@ function MatchingRules() {
                     )}
                 </Grid>
                 <Grid item xs={4}>
-
+                {!manualScoreEdit ? (
+                        <div>
+                            <div className={classes.ruleSetScoreThreshold}><b>Confirmed Match Cutoff Score : <br/></b> {manualScore}
+                                <IconButton aria-label="delete" className={classes.margin} onClick={() => setManualScoreEdit(true)}>
+                                    <Edit fontSize="small" />
+                                </IconButton>
+                            </div>
+                        </div>
+                    ) : (
+                            <div>
+                                <TextField id="outlined-basic" size="small" label="Ruleset Score Threshold" value={manualScore} variant="outlined" onChange={e => setManualScore(e.target.value)} />
+                                <IconButton aria-label="delete" className={classes.margin} onClick={() => setManualScoreEdit(false)}>
+                                    <Clear fontSize="small" />
+                                </IconButton>
+                            </div>
+                        )}
                 </Grid>
                 <Grid item xs={4}>
                     {!ruleSetScoreThresholdEdit ? (
                         <div>
-                            <div className={classes.ruleSetScoreThreshold}><b>Ruleset Score Threshold: <br/></b> {ruleSetScoreThreshold}
+                            <div className={classes.ruleSetScoreThreshold}><b>Confirmed Match Cutoff Score : <br/></b> {ruleSetScoreThreshold}
                                 <IconButton aria-label="delete" className={classes.margin} onClick={() => setRuleSetScoreThresholdEdit(true)}>
                                     <Edit fontSize="small" />
                                 </IconButton>
@@ -235,11 +252,11 @@ function MatchingRules() {
                                 <Typography variant="caption"><b>Rule Description</b><br/>This rule matches Full Name on fuzzy and Date of Birth , Email on exact  </Typography>
                             </Grid>
                             <Grid item xs={2} className={classes.ruleHelper}>
-                                <Typography variant="caption"><b>Rule Weightage</b><br/> 25</Typography>
+                                <Typography variant="caption"><b>Rule Weightage</b><br/> 23</Typography>
                             </Grid>
                             <Grid item xs={4} className={classes.ruleHelper}>
                                 <Button variant="outlined" size="small" className={classes.addRule} >
-                                    <Add fontSize="small"/> Add Attribute 
+                                    <Add fontSize="small"/> Add Condition 
                                 </Button>
                             </Grid>
                         </Grid>
@@ -378,7 +395,7 @@ function MatchingRules() {
                     </div>
                     <div className={classes.column}>
                     <Typography className={classes.ruleWeightage}> 
-                            <Badge badgeContent={45} color="secondary"style={{marginLeft: '46px'}}>
+                            <Badge badgeContent={30} color="secondary"style={{marginLeft: '46px'}}>
                             </Badge>
                         </Typography>
                     </div>
@@ -393,11 +410,11 @@ function MatchingRules() {
                                 <Typography variant="caption"><b>Rule Description</b><br/>This rule matches Full Name on fuzzy and Date of Birth , Nationality on exact</Typography>
                             </Grid>
                             <Grid item xs={2} className={classes.ruleHelper}>
-                                <Typography variant="caption"><b>Rule Weightage</b><br/> 45</Typography>
+                                <Typography variant="caption"><b>Rule Weightage</b><br/> 30</Typography>
                             </Grid>
                             <Grid item xs={4} className={classes.ruleHelper}>
                                 <Button variant="outlined" size="small" className={classes.addRule} >
-                                    <Add fontSize="small"/> Add Attribute 
+                                    <Add fontSize="small"/> Add Condition 
                                 </Button>
                             </Grid>
                         </Grid>
@@ -542,7 +559,7 @@ function MatchingRules() {
                     </div>
                     <div className={classes.column}>
                         <Typography className={classes.ruleWeightage}> 
-                            <Badge badgeContent={74} color="secondary"style={{marginLeft: '46px'}}>
+                            <Badge badgeContent={47} color="secondary"style={{marginLeft: '46px'}}>
                             </Badge>
                         </Typography>
                     </div>
@@ -561,7 +578,7 @@ function MatchingRules() {
                             </Grid>
                             <Grid item xs={4} className={classes.ruleHelper}>
                                 <Button variant="outlined" size="small" className={classes.addRule} >
-                                    <Add fontSize="small"/> Add Attribute 
+                                    <Add fontSize="small"/> Add Condition 
                                 </Button>
                             </Grid>
                         </Grid>

@@ -47,22 +47,44 @@ export default function ReviewMatches (){
                         <Grid container spacing={3} align="center" >
                         <Grid item xs={12}>
                             <Typography variant="h3" gutterBottom className={classes.inactive}>
-                                <b>13</b>
+                                <b>2</b>
                             </Typography>
-                            New Matches
+                            Total Pending
                         </Grid>
-                        <Grid item xs={6} style={{ textAlign: 'center'}}>
-                            <Typography variant="h3" gutterBottom className={classes.active}>
-                                <b>72</b>
+                        <Grid item xs={6}>
+                        <Typography variant="h3" gutterBottom>
+                            <b> </b>
+                        </Typography>
+                         
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Typography variant="h3" gutterBottom>
+                                <b></b>
                             </Typography>
-                            Matches Verified
-                        </Grid>
-                        <Grid item xs={6} style={{ textAlign: 'center'}}>
-                            <Typography variant="h3" gutterBottom className={classes.current}>
-                                <b>32</b>
+                             
+                    </Grid><Grid item xs={6}>
+                        <Typography variant="h3" gutterBottom>
+                            <b> </b>
+                        </Typography>
+                         
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Typography variant="h3" gutterBottom>
+                                <b></b>
                             </Typography>
-                            Under Review
-                        </Grid>
+                             
+                    </Grid><Grid item xs={6}>
+                        <Typography variant="h3" gutterBottom>
+                            <b> </b>
+                        </Typography>
+                         
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Typography variant="h3" gutterBottom>
+                                <b></b>
+                            </Typography>
+                             
+                    </Grid>
                         
                         </Grid>
                         <Button href="#/ReviewMatches" fullWidth variant="contained" color="primary" className={classes.button}>
