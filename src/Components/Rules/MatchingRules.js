@@ -176,7 +176,7 @@ function MatchingRules() {
                 <Grid item xs={4}>
                 {!manualScoreEdit ? (
                         <div>
-                            <div className={classes.ruleSetScoreThreshold}><b>Confirmed Match Cutoff Score : <br/></b> {manualScore}
+                            <div className={classes.ruleSetScoreThreshold}><b>Manual Review Cutoff Score : <br/></b> {manualScore}
                                 <IconButton aria-label="delete" className={classes.margin} onClick={() => setManualScoreEdit(true)}>
                                     <Edit fontSize="small" />
                                 </IconButton>
