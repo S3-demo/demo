@@ -35,7 +35,7 @@ export const RouteUrls = {
     EXECUTION: "/execution",
     RULES_VIEW: "/rules/*",
     DATA_QUALITY: "/dq",
-    REVIEW_MATCHES: "/reviewMatches"
+    REVIEW_MATCHES: "/reviewMatches",
     DATA_QUALITY_REPORT: "/dqreport",
 }
 

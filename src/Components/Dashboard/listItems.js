@@ -99,32 +99,29 @@ export default function ListItems() {
       </ListItemIcon>
       <ListItemText primary="Review matches" />
     </ListItemLink>
+    <ListItemLink href="#dq" selected={selectedIndex === 5}
+          onClick={(event) => handleListItemClick(event, 5)}>
+      <ListItemIcon>
+        <LayersIcon />
+      </ListItemIcon>
+      <ListItemText primary="Data Quality" />
+    </ListItemLink>
   </div>
   )};
 
 export const secondaryListItems = (
-  <div>
-    <ListSubheader inset>Reports</ListSubheader>
-    <ListItem button >
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Current month" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Last quarter" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Year-end" />
-    </ListItem>
-  </div>
-);
+
+
+      <div>
+        <ListSubheader inset>Reports</ListSubheader>
+        <ListItemLink href="#dqreport">
+          <ListItemIcon>
+            <AssignmentIcon />
+          </ListItemIcon>
+          <ListItemText primary="Data Quality Report" />
+        </ListItemLink>
+      </div>
+)
 
 
 export const dummyLinks = (
