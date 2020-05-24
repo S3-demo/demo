@@ -40,21 +40,21 @@ export default function DefineSource (){
                         <Grid container spacing={3}>
                         <Grid item xs={12}>
                             <Typography variant="h3" gutterBottom className={classes.active}>
-                                <b>122</b>
+                                <b>2</b>
+                            </Typography>
+                            Total Sources
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Typography variant="h3" gutterBottom className={classes.active}>
+                                <b>1</b>
                             </Typography>
                             Active Sources
                         </Grid>
                         <Grid item xs={6}>
                             <Typography variant="h3" gutterBottom className={classes.inactive}>
-                                <b>25</b>
-                            </Typography>
-                            Inactive Sources
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Typography variant="h3" gutterBottom className={classes.inactive}>
                                 <b>1</b>
                             </Typography>
-                            Invalid Data Sources
+                            Inactive Sources
                         </Grid>
                         </Grid>
                         <Button fullWidth href="#/MapToSource" variant="contained" color="primary" className={classes.button}>

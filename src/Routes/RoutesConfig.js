@@ -8,8 +8,8 @@ import Execution from '../Components/Execution/Execution';
 // import RuleSet from '../Components/RuleSet/RuleSet';
 import RulesWrapper from '../Components/RulesWrapper/RulesWrapper'
 import DataQuality from '../Components/DataQuality/DataQuality';
+import ReviewMatches from '../Components/ReviewMatches/ReviewMatchesWrapper';
 import DataQualityReport from '../Components/DataQuality/DataQualityReport';
-
 
 export const RouteNames = {
     LANDING_PAGE: "LANDING_PAGE",
@@ -35,6 +35,7 @@ export const RouteUrls = {
     EXECUTION: "/execution",
     RULES_VIEW: "/rules/*",
     DATA_QUALITY: "/dq",
+    REVIEW_MATCHES: "/reviewMatches"
     DATA_QUALITY_REPORT: "/dqreport",
 }
 
@@ -90,6 +91,11 @@ export const routes = [
         path: RouteUrls.DATA_QUALITY,
         dashboardcomponent: Dashboard,
         RenderComponent: DataQuality
+    },{
+        name: RouteNames.REVIEW_MATCHES,
+        path: RouteUrls.REVIEW_MATCHES,
+        dashboardcomponent: Dashboard,
+        RenderComponent: ReviewMatches
     }
     ,
     {

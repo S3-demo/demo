@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme, } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import MatchingRules from '../Rules/MatchingRules';
 import MergeRules from '../Rules/MergeRules';
 import {
+    AppBar,
     Box,
     Card,
     CardContent,
@@ -16,15 +17,14 @@ import {
     Typography,
     TextField,
     Tooltip,
-    AppBar
 } from '@material-ui/core';
 import { Edit, Clear, Category,MergeType } from '@material-ui/icons'
-
 import PlayArrow from '@material-ui/icons/PlayArrow';
-import RotateLeft from '@material-ui/icons/RotateLeft';
-import Timer from '@material-ui/icons/Timer';
-import Stop from '@material-ui/icons/Stop';
-import {green,red,indigo,orange} from '@material-ui/core/colors';
+import {green,red,indigo} from '@material-ui/core/colors';
+import Visibility from '@material-ui/icons/Visibility';
+
+
+import Breadcrumb from '../Breadcrumbs/Breadcrumb';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -66,22 +66,24 @@ const useStyles = makeStyles((theme) => ({
   PlayArrow: {
     color:green[500]
   },
-  RotateLeft: {
-    color:orange[900]
-  },
   Timer: {
     color:indigo[500]
   },
-  Stop: {
+  Visibility: {
     color: red[500]
   },
   actionButtons:{
       float: 'right',
       paddingBottom: '10px',
   },
+  breadcrumbs:{
+    paddingBottom: '10px',
+  }
 }));
 
+
 export default function RulesWrapper() {
+  
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -89,7 +91,7 @@ export default function RulesWrapper() {
   const [ruleSetName, setRuleSetName] = React.useState('Rule Set Name');
   const [ruleSetDescriptionEdit, setRuleSetDescriptionEdit] = React.useState(false);
   const [ruleSetDescription, setRuleSetDescription] = React.useState('This is the place for Rule Set Description. Please click on the edit button to edit the content.');
-   
+  const [path, setpath] = React.useState([]);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -97,18 +99,67 @@ export default function RulesWrapper() {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
+  
+  React.useEffect(()=>{
+    setpath([{
+      displayName: 'Home',
+      displayIcon: 'Home',
+      URL: '#/dashboard'
+    },
+    {
+      displayName: 'Rules',
+      displayIcon: '',
+      URL: '#/rules'
+    },
+    {
+      displayName: 'Add',
+      displayIcon: '',
+      URL: '#/rules/add'
+    }])
+  },[])
+
   React.useEffect(()=>{
     const path = window.location.hash;
     if(path === "#/rules/1"){
         setRuleSetName("Customer Rules");
+        setpath([{
+          displayName: 'Home',
+          displayIcon: 'Home',
+          URL: '#/dashboard'
+        },
+        {
+          displayName: 'Rules',
+          displayIcon: '',
+          URL: '#/rules'
+        },
+        {
+          displayName: 'Customer Rules',
+          displayIcon: '',
+          URL:''}])
     }else if(path === "#/rules/2"){
         setRuleSetName("Account Rules");
+        setpath([{
+          displayName: 'Home',
+          displayIcon: 'Home',
+          URL: '#/dashboard'
+        },
+        {
+          displayName: 'Rules',
+          displayIcon: '',
+          URL: '#/rules'
+        },
+        {
+          displayName: 'Account Rules',
+          displayIcon: '',
+          URL:''}])
     }
 },[window.location.hash]);
 
+ 
+
   return (
     <div className={classes.root}>
-
+    <Breadcrumb path={path}/>
     <Card className={classes.root} variant="outlined">
     <CardContent>
     <Grid container>
@@ -123,24 +174,14 @@ export default function RulesWrapper() {
       </Typography>
       </Grid>
       <Grid className={classes.actionButtons}>
-          <Tooltip title="Start">
+          <Tooltip title="Simulate">
               <IconButton aria-label="Start" className={classes.PlayArrow}>
                   <PlayArrow />
               </IconButton>
           </Tooltip>
-          <Tooltip title="Stop">
-              <IconButton aria-label="Stop" className={classes.Stop}>
-                  <Stop />
-              </IconButton>
-          </Tooltip>
-          <Tooltip title="Restart">
-              <IconButton aria-label="Restart" className={classes.RotateLeft}>
-                  <RotateLeft />
-              </IconButton>
-          </Tooltip>
-          <Tooltip title="schedule">
-              <IconButton aria-label="schedule" className={classes.Timer}>
-                  <Timer />
+          <Tooltip title="View Result">
+              <IconButton aria-label="schedule" className={classes.Visibility}>
+                  <Visibility />
               </IconButton>
           </Tooltip>
       </Grid>
@@ -195,6 +236,7 @@ export default function RulesWrapper() {
 
             
         </Grid>
+        </CardContent>
         <AppBar position="static" color="default">
         <Tabs
           value={value}
@@ -208,6 +250,7 @@ export default function RulesWrapper() {
           <Tab icon={<MergeType />} label="Merge Rules" {...a11yProps(1)} />
         </Tabs>
         </AppBar>
+        <CardContent>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}

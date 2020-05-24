@@ -46,21 +46,21 @@ export default function Standardize (){
                         <Grid container spacing={3} align="center" >
                         <Grid item xs={12}>
                             <Typography variant="h3" gutterBottom >
-                                <b>100</b>
+                                <b>13</b>
                             </Typography>
-                            Mappings Standardized
+                            Standard attributes
                         </Grid>
                         <Grid item xs={6} style={{ textAlign: 'center'}}>
                             <Typography variant="h3" gutterBottom className={classes.active}>
-                                <b>64</b>
+                                <b>4</b>
                             </Typography>
-                            fMappings - tResults
+                            Mapped Attributes
                         </Grid>
                         <Grid item xs={6} style={{ textAlign: 'center'}}>
                             <Typography variant="h3" gutterBottom className={classes.current}>
-                                <b>12</b>
+                                <b>9</b>
                             </Typography>
-                            fMappings - fResults
+                           Un Mapped Attributes
                         </Grid>
                         
                         </Grid>

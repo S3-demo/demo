@@ -54,7 +54,7 @@ export default function Default(){
           <Container maxWidth="sm">
             <Grow in={true} style={{ transformOrigin: '0 0 0' }} {...{ timeout: 1000 }}>
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Welcome Demo
+              Welcome Administrator
             </Typography>
             </Grow>
             {/* <Grow in={true} style={{ transformOrigin: '0 0 0' }} {...{ timeout: 1500 }}>
