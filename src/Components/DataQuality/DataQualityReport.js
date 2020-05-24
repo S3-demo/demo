@@ -273,17 +273,17 @@ const nullchk = {
         InputLabelProps={{ shrink: true, required: true }}
         type="date"
         defaultValue={"2017-05-24"}
-
-        
-
       />
-
-
-
-                            <Badge  badgeContent={23} color="secondary"style={{ marginLeft: '60px'}} >
-                            </Badge>
-                            <Badge badgeContent={23} color="primary"style={{marginLeft: '46px'}} fullWidth>
-                            </Badge>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Total Passed</b><br/> 
+                            994
+                        </Typography>
+                    </div>
+                    <div className={classes.column} >
+                        <Typography variant="caption"><b>Total Failed</b><br/> 
+                            112
+                        </Typography>
                     </div>
 
 
