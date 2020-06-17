@@ -10,6 +10,9 @@ import RulesWrapper from '../Components/RulesWrapper/RulesWrapper'
 import DataQuality from '../Components/DataQuality/DataQuality';
 import ReviewMatches from '../Components/ReviewMatches/ReviewMatchesWrapper';
 import DataQualityReport from '../Components/DataQuality/DataQualityReport';
+import ShowcaseLayout from '../Components/Reports/Reportdnd';
+import CutomerView from '../Components/Reports/Customer';
+import CutomerGraphView from '../Components/Reports/CustomerGraph';
 
 export const RouteNames = {
     LANDING_PAGE: "LANDING_PAGE",
@@ -21,7 +24,10 @@ export const RouteNames = {
     EXECUTION: "EXECUTION",
     RULES_VIEW: "RULESET_VIEW",
     DATA_QUALITY: "DATA_QUALITY",
-    DATA_QUALITY_REPORT: "DATA_QUALITY_REPORT"
+    DATA_QUALITY_REPORT: "DATA_QUALITY_REPORT",
+    CUSTOMER_REPORT: "CUSTOMER_REPORT",
+    CUSTOMER_VIEW: "CUSTOMER_VIEW",
+    CUSTOMER_GRAPH_VIEW: "CUSTOMER_GRAPH_VIEW"
 }
 
 
@@ -37,6 +43,9 @@ export const RouteUrls = {
     DATA_QUALITY: "/dq",
     REVIEW_MATCHES: "/reviewMatches",
     DATA_QUALITY_REPORT: "/dqreport",
+    CUSTOMER_REPORT: "/customerreport",
+    CUSTOMER_VIEW: "/customer",
+    CUSTOMER_GRAPH_VIEW: "/customergraph"
 }
 
 export const routes = [
@@ -103,6 +112,24 @@ export const routes = [
         path: RouteUrls.DATA_QUALITY_REPORT,
         dashboardcomponent: Dashboard,
         RenderComponent: DataQualityReport
+    },
+    {
+        name: RouteNames.CUSTOMER_REPORT,
+        path: RouteUrls.CUSTOMER_REPORT,
+        dashboardcomponent: Dashboard,
+        RenderComponent: ShowcaseLayout
+    },
+    {
+        name: RouteNames.CUSTOMER_VIEW,
+        path: RouteUrls.CUSTOMER_VIEW,
+        dashboardcomponent: Dashboard,
+        RenderComponent: CutomerView
+    },
+    {
+        name: RouteNames.CUSTOMER_GRAPH_VIEW,
+        path: RouteUrls.CUSTOMER_GRAPH_VIEW,
+        dashboardcomponent: Dashboard,
+        RenderComponent: CutomerGraphView
     },
     {
         path: "/*",

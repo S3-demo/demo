@@ -143,7 +143,7 @@ function MatchingRules() {
                 <Grid item xs={4}>
                 {!aggregationMethodEdit ? (
                         <div>
-                            <div className={classes.ruleSetName}><b>Aggregation Method: <br/></b> {aggregationMethod}
+                            <div className={classes.ruleSetName}><b>Aggregation Method: </b> {aggregationMethod}
                                 <IconButton aria-label="delete" className={classes.margin} onClick={() => setAggregationMethodEdit(true)}>
                                     <Edit fontSize="small" />
                                 </IconButton>
@@ -173,10 +173,10 @@ function MatchingRules() {
 
                     )}
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={3}>
                 {!manualScoreEdit ? (
                         <div>
-                            <div className={classes.ruleSetScoreThreshold}><b>Manual Review Cutoff Score : <br/></b> {manualScore}
+                            <div className={classes.ruleSetScoreThreshold}><b>Manual Review Cutoff Score : </b> {manualScore}
                                 <IconButton aria-label="delete" className={classes.margin} onClick={() => setManualScoreEdit(true)}>
                                     <Edit fontSize="small" />
                                 </IconButton>
@@ -191,10 +191,10 @@ function MatchingRules() {
                             </div>
                         )}
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={3}>
                     {!ruleSetScoreThresholdEdit ? (
                         <div>
-                            <div className={classes.ruleSetScoreThreshold}><b>Confirmed Match Cutoff Score : <br/></b> {ruleSetScoreThreshold}
+                            <div className={classes.ruleSetScoreThreshold}><b>Confirmed Match Cutoff Score : ></b> {ruleSetScoreThreshold}
                                 <IconButton aria-label="delete" className={classes.margin} onClick={() => setRuleSetScoreThresholdEdit(true)}>
                                     <Edit fontSize="small" />
                                 </IconButton>
@@ -210,12 +210,17 @@ function MatchingRules() {
                         )}
 
                     </Grid>
-                </Grid>
-                {/* <Divider style={{margin:'10px'}}/> */}
-                <Button variant="outlined" size="small" color="primary" className={classes.addRule} >
+
+                    <Grid item xs={2}>
+
+                    <Button variant="outlined" size="small" color="default" className={classes.addRule} >
                     <Add fontSize="small"/> Add Rule
                 </Button>
-                <br/>
+                </Grid>
+
+
+                </Grid>
+                {/* <Divider style={{margin:'10px'}}/> */}
                 <Typography component={'span'} variant={'body2'}>
                     <Box textAlign="center" m={1} fontSize="h5.fontSize" style={{ fontWeight: 'bold' }}>
                         Available Rules

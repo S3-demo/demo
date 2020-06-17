@@ -1,4 +1,3 @@
-
 import React, { component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -172,6 +171,7 @@ function DataQualityReport() {
       }
     ]
   }
+
 
   const state1 = {
     labels: ['January', 'February', 'March',
@@ -479,7 +479,7 @@ function DataQualityReport() {
         </Grid>
         <Grid item xs={6}>
 
-          <div>
+          <div >
             <Bar
               width="20%"
               height="10%"
@@ -502,7 +502,7 @@ function DataQualityReport() {
         </Grid>
 
         <Grid item xs={6} >
-          <div>
+          <div >
             <Bar
               width="20%"
               height="10%"

@@ -16,13 +16,39 @@ import {
 import { Edit, Clear, Add, } from '@material-ui/icons'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DeleteIcon from '@material-ui/icons/Delete';
-import {green,red,indigo,orange,blue,grey} from '@material-ui/core/colors';
+import {green,red,indigo,orange,blue,grey,cyan,lightBlue} from '@material-ui/core/colors';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import EditIcon from '@material-ui/core/Icon';
 
+function createData(name, minvalue, maxvalue, minlength, maxlength,lov,nulallowed) {
+    return { name, minvalue, maxvalue, minlength, maxlength,lov,nulallowed };
+  }
+  
+  const rows = [
+    createData('Range Check', 0, 255,'','','',''),
+    createData('Length Check', '', '',20,40,'',''),
+    createData('List of Values', 262, 16.0, 24, 6.0),
+    createData('Null Check', 305, 3.7, 67, 4.3)
+  ];
+
+  const editIcon = (
+    <IconButton onClick={1}>
+      <EditIcon color="primary" />
+    </IconButton>
+  );
 
 const useStyles = makeStyles((theme)=>({
     root: {
         minWidth: 275,
     },
+    table: {
+        minWidth: 650,
+      },
     bullet: {
         display: 'inline-block',
         margin: '0 2px',
@@ -76,11 +102,31 @@ const useStyles = makeStyles((theme)=>({
     },
     details: {
         alignItems: 'center',
-        backgroundColor: grey[200],
+        backgroundColor: lightBlue[10],
+        borderWidth: 0,
+        borderRightWidth: 1,
+        borderLeftWidth: 1,
+        bordertopWidth: 1,
+        borderbottomWidth: 1,
+        borderColor: 'black',
+        borderStyle: 'solid'
+        
     },
     column: {
         flexBasis: '33.33%',
+        fontSize: theme.typography.pxToRem(15)
+        
+    },
+    column1: {
+        flexBasis: '33.33%',
         fontSize: theme.typography.pxToRem(15),
+        borderWidth: 0,
+        borderRightWidth: 1,
+        borderLeftWidth: 1,
+        bordertopWidth: 1,
+        borderbottomWidth: 1,
+        borderColor: 'black',
+        borderStyle: 'solid'
     },
     helper: {
         borderLeft: `2px solid ${theme.palette.divider}`,
@@ -152,8 +198,42 @@ function DataQuality(){
                         </Grid>
                     </div>
                     <Divider />
+
+                    <TableContainer component={Paper}>
+      <Table className={classes.table} size="small" aria-label="a dense table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Rule Type</TableCell>
+            <TableCell align="right">Minimum Value</TableCell>
+            <TableCell align="right">Maximum Value</TableCell>
+            <TableCell align="right">Minimum Length</TableCell>
+            <TableCell align="right">Maximum Length</TableCell>
+            <TableCell align="right">List of Values</TableCell>
+            <TableCell align="right">Null Allowed</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow key={row.name} >
+              <TableCell component="th" scope="row">
+                {row.name}
+              </TableCell>
+              <TableCell align="right">{row.minvalue}</TableCell>
+              <TableCell align="right">{row.maxvalue}</TableCell>
+              <TableCell align="right">{row.minlength}</TableCell>
+              <TableCell align="right">{row.maxlength}</TableCell>
+              <TableCell align="right">{row.lov}</TableCell>
+              <TableCell align="right">{row.nulallowed}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+
+
+
                     <ExpansionPanelDetails className={classes.details}>
-                    <div className={classes.column} >
+                    <div className={classes.column1}>
                         <Typography variant="caption"><b>Rule Type</b><br/> Range Check</Typography>
                     </div>
                     <div className={classes.column} >
@@ -192,7 +272,7 @@ function DataQuality(){
                     <div className={classes.column} >
                         <Typography variant="caption"><b>Rule Type</b><br/> Length Check</Typography>
                     </div>
-                    <div className={classes.column} >
+                    <div className={classes.column1} >
                         <Typography variant="caption"><b>Minimum Length</b><br/> 
                             10
                         </Typography>

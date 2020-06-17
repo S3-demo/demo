@@ -6,10 +6,14 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import MatchingRules from '../Rules/MatchingRules';
 import MergeRules from '../Rules/MergeRules';
+import {Add} from '@material-ui/icons'
 import {
     AppBar,
     Box,
+    Button,
+    Paper,
     Card,
+    Divider,
     CardContent,
     FormControl,
     Grid,
@@ -90,7 +94,7 @@ export default function RulesWrapper() {
   const [ruleSetNameEdit, setRuleSetNameEdit] = React.useState(false);
   const [ruleSetName, setRuleSetName] = React.useState('Rule Set Name');
   const [ruleSetDescriptionEdit, setRuleSetDescriptionEdit] = React.useState(false);
-  const [ruleSetDescription, setRuleSetDescription] = React.useState('This is the place for Rule Set Description. Please click on the edit button to edit the content.');
+  const [ruleSetDescription, setRuleSetDescription] = React.useState('Please enter description.');
   const [path, setpath] = React.useState([]);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -161,39 +165,13 @@ export default function RulesWrapper() {
     <div className={classes.root}>
     <Breadcrumb path={path}/>
     <Card className={classes.root} variant="outlined">
-    <CardContent>
-    <Grid container>
-      <Grid item xs={3}>
-
-      </Grid>
-      <Grid item xs={6}>
-      <Typography component={'span'} variant={'body2'}>
-          <Box textAlign="center" m={1} fontSize="h5.fontSize" style={{ fontWeight: 'bold' }}>
-              Deduplication Rules
-          </Box>
-      </Typography>
-      </Grid>
-      <Grid className={classes.actionButtons}>
-          <Tooltip title="Simulate">
-              <IconButton aria-label="Start" className={classes.PlayArrow}>
-                  <PlayArrow />
-              </IconButton>
-          </Tooltip>
-          <Tooltip title="View Result">
-              <IconButton aria-label="schedule" className={classes.Visibility}>
-                  <Visibility />
-              </IconButton>
-          </Tooltip>
-      </Grid>
-    </Grid>
-
     
-    <Grid container>
+    <Grid container xs={12}>
         <Grid item xs={4}>
             {!ruleSetNameEdit ? (
                 <div>
-                    <div className={classes.ruleSetName}><b>Ruleset Name: <br/></b> {ruleSetName}
-                        <IconButton aria-label="delete" className={classes.margin} onClick={() => setRuleSetNameEdit(true)}>
+                    <div className={classes.ruleSetName}><b>Ruleset Name: </b> {ruleSetName}
+                        <IconButton aria-label="delete" className={classes.margin} onClick={() => setRuleSetNameEdit(true)} >
                             <Edit fontSize="small" />
                         </IconButton>
                     </div>
@@ -210,12 +188,9 @@ export default function RulesWrapper() {
         </Grid>
 
         <Grid item xs={4}>
-
-        </Grid>
-        <Grid item xs={4}>
             {!ruleSetDescriptionEdit ? (
                 <div>
-                    <div className={classes.ruleSetDescription}><b>Ruleset Description: <br/></b> {ruleSetDescription}
+                    <div className={classes.ruleSetDescription}><b>Ruleset Description: </b> {ruleSetDescription}
                         <IconButton aria-label="delete" className={classes.margin} onClick={() => setRuleSetDescriptionEdit(true)}>
                             <Edit fontSize="small" />
                         </IconButton>
@@ -231,12 +206,24 @@ export default function RulesWrapper() {
                         </FormControl>
                     </div>
                 )}
-
         </Grid>
+
+
+        <Grid item xs={4} className={classes.actionButtons} align="right">
+          <Tooltip title="Simulate">
+              <IconButton aria-label="Start" className={classes.PlayArrow}>
+                  <PlayArrow />
+              </IconButton>
+          </Tooltip>
+          <Tooltip title="View Result">
+              <IconButton aria-label="schedule" className={classes.Visibility}>
+                  <Visibility />
+              </IconButton>
+          </Tooltip>
+      </Grid>
 
             
         </Grid>
-        </CardContent>
         <AppBar position="static" color="default">
         <Tabs
           value={value}
@@ -249,6 +236,7 @@ export default function RulesWrapper() {
           <Tab icon={<Category />} label="Matching Rules" {...a11yProps(0)} />
           <Tab icon={<MergeType />} label="Merge Rules" {...a11yProps(1)} />
         </Tabs>
+
         </AppBar>
         <CardContent>
       <SwipeableViews
