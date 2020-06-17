@@ -551,21 +551,13 @@ function CutomerView() {
             <div style={{ display: 'flex' }}>
               <Grid xs={6} align="center">
  
-              <Badge
-        overlap="circle"
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        badgeContent={4} color="secondary">
               <Avatar className={classes.large} style={{ backgroundColor: green[500] }} align="center">
                 70
        
               </Avatar>
-              </Badge> 
  
               <Typography variant="body2" display="block" gutterBottom font={2}>
-                KYC Score
+                KYC
               </Typography>
               </Grid>
 
@@ -607,7 +599,7 @@ function CutomerView() {
       <TimelineItem>
         <TimelineOppositeContent>
           <Typography variant="body2" color="textSecondary">
-            9:30 am
+            June 01 2020
           </Typography>
         </TimelineOppositeContent>
         <TimelineSeparator>
@@ -618,13 +610,13 @@ function CutomerView() {
         </TimelineSeparator>
         <TimelineContent>
             <Typography variant="body2" display="block" gutterBottom align="left">
-              Because you need strength</Typography>
+              Customer Ordered for New Mobile Connection</Typography>
         </TimelineContent>
       </TimelineItem>
       <TimelineItem>
         <TimelineOppositeContent>
           <Typography variant="body2" color="textSecondary">
-            10:00 am
+          June 04 2020
           </Typography>
         </TimelineOppositeContent>
         <TimelineSeparator>
@@ -635,10 +627,15 @@ function CutomerView() {
         </TimelineSeparator>
         <TimelineContent>
             <Typography variant="body2" display="block" gutterBottom align="left">
-              Because it&apos;s awesome!</Typography>
+              Call back requested by Ryan</Typography>
         </TimelineContent>
       </TimelineItem>
       <TimelineItem>
+      <TimelineOppositeContent>
+          <Typography variant="body2" color="textSecondary">
+          June 07 2020
+          </Typography>
+        </TimelineOppositeContent> 
         <TimelineSeparator>
           <TimelineDot color="primary">
             <PhoneCallbackIcon />
@@ -647,13 +644,13 @@ function CutomerView() {
         </TimelineSeparator>
         <TimelineContent>
             <Typography variant="body2" display="block" gutterBottom align="left">
-              Because you need rest</Typography>
+              Call back customer in 2 hrs</Typography>
         </TimelineContent>
       </TimelineItem>
       <TimelineItem>
       <TimelineOppositeContent>
           <Typography variant="body2" color="textSecondary">
-            9:30 am
+          June 10 2020
           </Typography>
         </TimelineOppositeContent>
         <TimelineSeparator>
@@ -664,13 +661,33 @@ function CutomerView() {
         </TimelineSeparator>
         <TimelineContent>
             <Typography variant="body2" display="block" gutterBottom align="left">
-              Because you need strength</Typography>
+              Call Following up with Ryan</Typography>
         </TimelineContent>
       </TimelineItem>
       <TimelineItem>
+        
       <TimelineOppositeContent>
           <Typography variant="body2" color="textSecondary">
-            9:30 am
+             June 12 2020
+          </Typography>
+        </TimelineOppositeContent>
+        <TimelineSeparator>
+          <TimelineDot color="secondary">
+            <MobileScreenShareIcon/>
+          </TimelineDot>
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent>
+          <Typography variant="body2" display="block" gutterBottom align="left">
+              Replacement for new setupbox
+          </Typography>
+        </TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        
+      <TimelineOppositeContent>
+          <Typography variant="body2" color="textSecondary">
+          June 14 2020
           </Typography>
         </TimelineOppositeContent>
         <TimelineSeparator>
@@ -681,29 +698,9 @@ function CutomerView() {
         </TimelineSeparator>
         <TimelineContent>
             <Typography variant="body2" display="block" gutterBottom align="left">
-              Because you need strength</Typography>
+              Placed an order new IPTV</Typography>
         </TimelineContent>
       </TimelineItem>
-      <TimelineItem>
-      <TimelineOppositeContent>
-          <Typography variant="body2" color="textSecondary">
-            9:30 am
-          </Typography>
-        </TimelineOppositeContent>
-        <TimelineSeparator>
-          <TimelineDot color="secondary">
-            <MobileScreenShareIcon/>
-          </TimelineDot>
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent>
-            <Typography variant="body2" display="block" gutterBottom align="left">
-              Because you need strength</Typography>
-        </TimelineContent>
-      </TimelineItem>
-
-
-
     </Timeline>
 
 
