@@ -16,6 +16,8 @@ import Collapse from '@material-ui/core/Collapse';
 import List from '@material-ui/core/List';
 import AssignmentInd from '@material-ui/icons/AssignmentInd';
 import LockOpen from '@material-ui/icons/LockOpen';
+import AssessmentIcon from '@material-ui/icons/Assessment';
+import DonutSmallIcon from '@material-ui/icons/DonutSmall';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -106,6 +108,15 @@ export default function ListItems() {
       </ListItemIcon>
       <ListItemText primary="Data Quality" />
     </ListItemLink>
+    <ListItemLink href="#customergraph" selected={selectedIndex === 5}
+          onClick={(event) => handleListItemClick(event, 5)}>
+      <ListItemIcon>
+        <DonutSmallIcon />
+      </ListItemIcon>
+      <ListItemText primary="Customers" />
+    </ListItemLink>
+
+    
   </div>
   )};
 
@@ -120,6 +131,13 @@ export const secondaryListItems = (
           </ListItemIcon>
           <ListItemText primary="Data Quality Report" />
         </ListItemLink>
+        <ListItemLink href="#customer">
+          <ListItemIcon>
+            <AssessmentIcon />
+          </ListItemIcon>
+          <ListItemText primary="Customer 360 View" />
+        </ListItemLink>
+
       </div>
 )
 

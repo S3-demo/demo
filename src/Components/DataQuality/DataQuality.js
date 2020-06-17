@@ -199,41 +199,10 @@ function DataQuality(){
                     </div>
                     <Divider />
 
-                    <TableContainer component={Paper}>
-      <Table className={classes.table} size="small" aria-label="a dense table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Rule Type</TableCell>
-            <TableCell align="right">Minimum Value</TableCell>
-            <TableCell align="right">Maximum Value</TableCell>
-            <TableCell align="right">Minimum Length</TableCell>
-            <TableCell align="right">Maximum Length</TableCell>
-            <TableCell align="right">List of Values</TableCell>
-            <TableCell align="right">Null Allowed</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name} >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.minvalue}</TableCell>
-              <TableCell align="right">{row.maxvalue}</TableCell>
-              <TableCell align="right">{row.minlength}</TableCell>
-              <TableCell align="right">{row.maxlength}</TableCell>
-              <TableCell align="right">{row.lov}</TableCell>
-              <TableCell align="right">{row.nulallowed}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-
 
 
                     <ExpansionPanelDetails className={classes.details}>
-                    <div className={classes.column1}>
+                    <div className={classes.column}>
                         <Typography variant="caption"><b>Rule Type</b><br/> Range Check</Typography>
                     </div>
                     <div className={classes.column} >
@@ -265,14 +234,13 @@ function DataQuality(){
                         } style={{ margin: '2px' }}
                         />
                     </div>
-                  
                     </ExpansionPanelDetails>
 
                     <ExpansionPanelDetails className={classes.details}>
                     <div className={classes.column} >
                         <Typography variant="caption"><b>Rule Type</b><br/> Length Check</Typography>
                     </div>
-                    <div className={classes.column1} >
+                    <div className={classes.column} >
                         <Typography variant="caption"><b>Minimum Length</b><br/> 
                             10
                         </Typography>
